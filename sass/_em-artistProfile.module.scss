@@ -154,5 +154,68 @@
       }
     }
   }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  
+    input[type="checkbox"] {
+      display: none;
+    }
+  
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  
+    span {
+      margin-right: 10px;
+    }
+  
+    .tick-icon {
+      font-size: 18px;
+      color: #008000; /* Green color for tick mark */
+    }
+  
+    .option-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  
+    .option-title {
+      font-weight: bold;
+    }
+  
+    .option-writer {
+      font-size: 12px;
+      color: #777;
+    }
+  
+    .time-icon {
+      font-size: 14px;
+      margin-right: 5px;
+      color: #000; /* Black color for time icon */
+    }
+  
+    .play-icon {
+      font-size: 20px;
+      margin-right: 5px;
+      color: #f00; /* Red color for play button icon */
+    }
+  
+    .download-icon {
+      font-size: 20px;
+      color: #000; /* Black color for download button icon */
+    }
+  
+    input[type="checkbox"]:checked + span .tick-icon {
+      display: inline-block;
+    }
+  }
+  
   
 }

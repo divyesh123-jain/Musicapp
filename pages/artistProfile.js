@@ -2,13 +2,49 @@
 import Image from "next/image";
 import styles from "../sass/_em-artistProfile.module.scss";
 // import "../sass/_em-artistProfile.scss";
-import React from "react";
-import { BsArrowLeftCircle, BsMusicNote } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
+import { TiMediaPlay, TiDownload } from "react-icons/ti";
+import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 
 const artistProfile = () => {
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  const handleCheckboxChange = (value) => {
+    if (checkedItems.includes(value)) {
+      setCheckedItems(checkedItems.filter((item) => item !== value));
+    } else {
+      setCheckedItems([...checkedItems, value]);
+    }
+  };
+
+  const options = [
+    {
+      id: 1,
+      image: "/../public/imggg.png",
+      title: "I Don't Think That I Like Her",
+      writer: "Charlie Puth",
+      time: "10:00",
+    },
+    {
+      id: 2,
+      image: "img.png",
+      title: "I Don't Think That I Like Her",
+      writer: "Charlie Puth",
+      time: "10:00",
+    },
+    {
+      id: 3,
+      image: "img.png",
+      title: "I Don't Think That I Like Her",
+      writer: "Charlie Puth",
+      time: "10:00",
+    },
+  ];
+
   return (
     <>
       <div className={`${styles["em-db-content"]}`}>
@@ -226,17 +262,69 @@ const artistProfile = () => {
           </div>
         </div>
 
-        <div className="text-xl">Albums</div>
+        <div className="text-xl font-semibold mt-5">Albums</div>
 
-        <div>
+        <div className="mt-4">
           <div className="flex flex-col">
             <Image
-              src={"/../public/sample.jpg"}
-              width={300}
-              height={300}
-              className="rounded-lg"
+              src={"/../public/albumCover.jpg"}
+              width={200}
+              height={200}
+              className="rounded-xl"
             />
+            <div className="font-semibold text-lg mt-3 ml-1">
+              Somebody Like U
+            </div>
+            <div className="text-gray-600 text-base ml-1">Alan Walker</div>
           </div>
+        </div>
+
+        <div className="text-xl font-semibold mt-5">All Singles</div>
+
+        <div>
+          {options.map((option) => (
+            <label
+              key={option.id}
+              className="flex justify-between items-center p-2 border-b border-gray-200 last:border-b-0 "
+            >
+              <input
+                type="checkbox"
+                className="hidden"
+                checked={checkedItems.includes(option.id)}
+                onChange={() => handleCheckboxChange(option.id)}
+              />
+              <div className="flex items-center">
+                <div className="mr-4">
+                  {checkedItems.includes(option.id) ? (
+                    <MdCheckBox className="w-6 h-6 text-red-500" />
+                  ) : (
+                    <MdCheckBoxOutlineBlank className="w-6 h-6" />
+                  )}
+                </div>
+                <img
+                  src={option.image}
+                  alt="Option"
+                  className="w-12 h-12 object-cover rounded-full"
+                />
+                <div className="ml-4">
+                  <p className="text-lg font-bold">{option.title}</p>
+                  <p className="text-sm text-gray-600">{option.writer}</p>
+                </div>
+              </div>
+              <div className="flex justify-between w-[25%]">
+                <div className="flex items-center mx-4">
+                  <span className="text-gray-500">
+                    <BsClock />
+                    {option.time}
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <TiMediaPlay className="w-6 h-6 text-black" />
+                  <TiDownload className="w-6 h-6 text-black ml-4" />
+                </div>
+              </div>
+            </label>
+          ))}
         </div>
       </div>
     </>
