@@ -1,0 +1,158 @@
+.em-db-content {
+  margin-left: 270px;
+  padding: 40px 24px 30px 24px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
+}
+
+.em-db-content-title {
+  display: flex;
+
+  h2 {
+    color: black;
+    margin-left: 10px;
+    font-family: SF Pro Text;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0em;
+    font-family: "sfPro";
+    text-align: left;
+    @media screen and (max-width: 480px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.em-db-content-title-icon{
+   font-size: 30px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.em-db-content-body{
+  height: full;
+}
+
+.em-db-music {
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
+  li {
+    padding: 12px 30px;
+    list-style: none;
+    background: #00000066;
+    border-radius: 16px;
+    padding: 12px;
+    // max-width: 203px;
+    // width: 100%;
+    @media screen and (max-width:480px) {
+      padding: 10px;
+    }
+    & + li {
+      margin-top: 16px;
+    }
+    i {
+      display: block;
+      color: #fafafa;
+    }
+    span {
+      font-family: "sfPro";
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
+      color: #fafafa;
+      opacity: 0.6;
+      display: block;
+      margin-top: 14px;
+      white-space:  nowrap;
+    }
+    em {
+      font-family: "sfPro";
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 38px;
+      color: #ffffff;
+      font-style: normal;
+      margin-top: 4px;
+      display: inline-block;
+    }
+  }
+}
+
+.em-db-subcription {
+  margin-left: 16px;
+}
+
+.em-db-individual {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(207, 203, 203);
+  border: 2px rgb(53, 53, 53) solid;
+  border-radius: 10px;
+}
+
+.em-my-music {
+  margin-top: 32px;
+
+
+
+  h4 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    font-family: "sfPro";
+  }
+
+  @media screen and (max-width: 480px) {
+    .album-card-wrapper{
+      width: 50% !important;
+    }
+    h4 {
+      font-size: 20px;
+    }
+  }
+  .em-my-music-slider {
+    margin-top: 24px 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    li {
+      list-style: none;
+    }
+  }
+  .em-my-music-slider-wraper {
+    img{
+      display: inline;
+      max-width: 150px;
+    }
+    .em-my-music-slider-info {
+      margin-top: 12px;
+      h6 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        color: #ffffff;
+        margin: 0;
+        font-family: "sfPro";
+      }
+      span {
+        color: #a1a1a1;
+        display: block;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        margin-top: 4px;
+        font-family: "sfPro";
+      }
+    }
+  }
+  
+}
