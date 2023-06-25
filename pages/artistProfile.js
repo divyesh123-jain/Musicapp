@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../sass/_em-artistProfile.module.scss";
 // import "../sass/_em-artistProfile.scss";
 import React, { useState } from "react";
+
 import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
@@ -10,7 +11,7 @@ import { TiTick } from "react-icons/ti";
 import { TiMediaPlay, TiDownload } from "react-icons/ti";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 
-const artistProfile = () => {
+const ArtistProfile = () => {
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (value) => {
@@ -331,4 +332,4 @@ const artistProfile = () => {
   );
 };
 
-export default artistProfile;
+export default ArtistProfile;
