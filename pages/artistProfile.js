@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "../sass/_em-artistProfile.module.scss";
 // import "../sass/_em-artistProfile.scss";
 import React, { useState } from "react";
-
 import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
@@ -11,7 +10,7 @@ import { TiTick } from "react-icons/ti";
 import { TiMediaPlay, TiDownload } from "react-icons/ti";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 
-const ArtistProfile = () => {
+const artistProfile = () => {
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (value) => {
@@ -268,7 +267,7 @@ const ArtistProfile = () => {
         <div className="mt-4">
           <div className="flex flex-col">
             <Image
-              src={"/../public/albumCover.jpg"}
+              src="/../public/albumCover.jpg"
               width={200}
               height={200}
               className="rounded-xl"
@@ -302,10 +301,12 @@ const ArtistProfile = () => {
                     <MdCheckBoxOutlineBlank className="w-6 h-6" />
                   )}
                 </div>
-                <img
-                  src={option.image}
-                  alt="Option"
-                  className="w-12 h-12 object-cover rounded-full"
+                <Image
+                  src="/../public/albumCover.jpg"
+                  alt="album cover"
+                  width={50}
+                  height={50}
+                  className="w-12 h-12 object-cover rounded-md"
                 />
                 <div className="ml-4">
                   <p className="text-lg font-bold">{option.title}</p>
@@ -332,4 +333,4 @@ const ArtistProfile = () => {
   );
 };
 
-export default ArtistProfile;
+export default artistProfile;
