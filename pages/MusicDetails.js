@@ -4,6 +4,7 @@ import styles from "../sass/_em-artistProfile.module.scss";
 import { BsClock } from "react-icons/bs";
 import { TiMediaPlay } from "react-icons/ti";
 import Image from "next/image";
+
 const MusicDetails = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const MusicDetails = () => {
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
           <BsArrowLeftCircle className={styles["em-db-content-title-icon"]} />
-          <h2>I Don’t Think That I Like Her</h2>
+          <h2>I Don&apos;t Think That I Like Her</h2>
         </div>
         <div
           className={`${styles["em-db-content-body"]} grid lg:grid-cols-3 grid-cols-1 p-3 mt-2 space-x-2`}
@@ -31,7 +32,7 @@ const MusicDetails = () => {
                 Track Title
               </div>
               <div className="text-neutral-700 text-[16px] font-medium leading-tight">
-                I Don't Think That I like Her
+                I Don&apos;t Think That I like Her
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-2 flex">

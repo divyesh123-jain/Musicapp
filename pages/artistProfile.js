@@ -10,7 +10,7 @@ import { TiTick } from "react-icons/ti";
 import { TiMediaPlay, TiDownload } from "react-icons/ti";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 
-const artistProfile = () => {
+const ArtistProfile = () => {
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (value) => {
@@ -344,4 +344,4 @@ const artistProfile = () => {
   );
 };
 
-export default artistProfile;
+export default ArtistProfile;

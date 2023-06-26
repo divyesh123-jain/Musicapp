@@ -54,7 +54,7 @@ const EMAC = () => {
             </div>
             <div>USA</div>
             <div>POP</div>
-            <div>We Don't Talk Anymore</div>
+            <div>We Don&apos;t Talk Anymore</div>
             <div>123</div>
           </div>
         </div>
