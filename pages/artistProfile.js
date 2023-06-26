@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "../sass/_em-artistProfile.module.scss";
 // import "../sass/_em-artistProfile.scss";
 import React, { useState } from "react";
-
 import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
@@ -265,10 +264,10 @@ const ArtistProfile = () => {
 
         <div className="text-xl font-semibold mt-5">Albums</div>
 
-        <div className="mt-4">
-          <div className="flex flex-col">
+        <div className="mt-4 flex">
+          <div className="flex flex-col w-[fit] hover:bg-gray-200 p-3 rounded-xl">
             <Image
-              src={"/../public/albumCover.jpg"}
+              src="/../public/albumCover.jpg"
               width={200}
               height={200}
               className="rounded-xl"
@@ -286,7 +285,7 @@ const ArtistProfile = () => {
           {options.map((option) => (
             <label
               key={option.id}
-              className="flex justify-between items-center p-2 border-b border-gray-200 last:border-b-0 "
+              className="flex justify-between items-center p-2 last:border-b-0 bg-gray-300 cursor-pointer mb-4 rounded-lg"
             >
               <input
                 type="checkbox"
@@ -302,10 +301,12 @@ const ArtistProfile = () => {
                     <MdCheckBoxOutlineBlank className="w-6 h-6" />
                   )}
                 </div>
-                <img
-                  src={option.image}
-                  alt="Option"
-                  className="w-12 h-12 object-cover rounded-full"
+                <Image
+                  src="/../public/albumCover.jpg"
+                  alt="album cover"
+                  width={50}
+                  height={50}
+                  className="w-12 h-12 object-cover rounded-md"
                 />
                 <div className="ml-4">
                   <p className="text-lg font-bold">{option.title}</p>
@@ -326,6 +327,17 @@ const ArtistProfile = () => {
               </div>
             </label>
           ))}
+        </div>
+
+        <div className="flex justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
+          <div>Selected: 1</div>
+          <div className="flex justify-evenly space-x-16 items-center font-bold">
+            <div>Unselect all</div>
+            <div>Select All</div>
+            <div className="pl-16 pr-16 pt-4 pb-4 w-[fit] bg-red-400 rounded-full font-semi">
+              Download
+            </div>
+          </div>
         </div>
       </div>
     </>
