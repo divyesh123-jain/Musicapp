@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiSearch } from 'react-icons/bi'
 
-const Artist2 = () => {
+const artist = () => {
   return (
    <>
     <div class="flex-1  justify-center items-center w-[256px] px-2 sm:px-0">
@@ -45,4 +45,4 @@ const Artist2 = () => {
   )
 }
 
-export default Artist2
+export default artist
