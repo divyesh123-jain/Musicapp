@@ -52,7 +52,7 @@ const ArtistProfile = () => {
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
           <BsArrowLeftCircle className={styles["em-db-content-title-icon"]} />
-          <h2>Artist Profile</h2>
+          <h2 className="text-white">Artist Profile</h2>
         </div>
 
         <div
