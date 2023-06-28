@@ -46,7 +46,9 @@ const ArtistProfile = () => {
 
   return (
     <>
-      <div className={`${styles["em-db-content"]}`}>
+      <div
+        className={`${styles["em-db-content"]} md:ml-[270px] min-h-[100vh] text-white p-5`}
+      >
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
@@ -68,15 +70,17 @@ const ArtistProfile = () => {
                 className={`rounded-full mt-3 flex justify-center items-center`}
               />
             </div>
-            <div className=" font-semibold text-2xl flex justify-center items-center">
+            <div className=" font-semibold text-2xl flex justify-center items-center mt-5 md:mt-0">
               Ari Elkins
             </div>
-            <div className="flex justify-between mt-3 p-3 bg-gray-900 rounded-full text-gray-300">
+            <div className="flex justify-between mt-3 p-1 backdrop-opacity-25 bg-black/50 rounded-full text-gray-300">
               <div>
                 <IoTicket className="text-5xl flex justify-center items-center ml-4 mt-2" />
               </div>
               <div className="flex flex-col mr-3">
-                <div>Membership:</div>
+                <div className="font-semibold bg-gradient-to-r from-blue-400 via-pink-500 text-transparent bg-clip-text">
+                  Membership:
+                </div>
                 <div>AWB | Artist With Benefit</div>
                 <div>1496 Followers</div>
               </div>
@@ -84,7 +88,7 @@ const ArtistProfile = () => {
 
             <div></div>
           </div>
-          <div className="col-lg-5 mt-10 p-3">
+          <div className="col-lg-5 mt-10 p-3 h-[100vh] md:h-auto">
             <ul
               className={`${styles["em-db-music"]} row gap-3 grid grid-cols-2`}
             >
@@ -142,14 +146,19 @@ const ArtistProfile = () => {
               </li>
             </ul>
           </div>
-          <div className={`${styles["em-db-subcription"]}`}>
+
+          {/* //!using temporary margin (-mt-[50vh]) to take the below section up... resolve this if possible */}
+
+          <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0`}>
             <div className="flex justify-between text-xl font-bold">
               <div>Subscription</div>
               <div>View All</div>
             </div>
             <div className="flex flex-col space-y-4 mt-9 ">
               <div>
-                <div className={`${styles["em-db-individual"]} py-1 px-2`}>
+                <div
+                  className={`${styles["em-db-individual"]} flex justify-between rounded-[10px] py-1 px-2 backdrop-opacity-25 bg-white/10 border border-white/40`}
+                >
                   <BiSolidCrown className="text-3xl text-yellow-600 mt-4" />
                   <div className="mr-10">
                     <div>AWB | Artists with Benefits</div>
@@ -159,7 +168,9 @@ const ArtistProfile = () => {
                 </div>
               </div>
               <div>
-                <div className={`${styles["em-db-individual"]} py-1 px-2`}>
+                <div
+                  className={`${styles["em-db-individual"]} flex justify-between rounded-[10px] py-1 px-2 backdrop-opacity-25 bg-white/10 border border-white/40`}
+                >
                   <BiSolidCrown className="text-3xl text-yellow-600 mt-4" />
                   <div className="mr-10">
                     <div>AWB | Artists with Benefits</div>
@@ -169,7 +180,9 @@ const ArtistProfile = () => {
                 </div>
               </div>
               <div>
-                <div className={`${styles["em-db-individual"]} py-1 px-2`}>
+                <div
+                  className={`${styles["em-db-individual"]} flex justify-between rounded-[10px] py-1 px-2 backdrop-opacity-25 bg-white/10 border border-white/40`}
+                >
                   <BiSolidCrown className="text-3xl text-yellow-600 mt-4" />
                   <div className="mr-10">
                     <div>AWB | Artists with Benefits</div>
@@ -182,89 +195,91 @@ const ArtistProfile = () => {
           </div>
         </div>
 
-        <div className="flex justify-between mt-5 font-semibold text-xl">
-          <div>Active Add Ons</div>
-          <div>View All</div>
-        </div>
-        <div className="mt-5 flex space-x-2">
-          <div className="p-5 border-2 rounded-lg border-gray-700 w-[30vw]">
-            <div className="flex justify-between">
-              <div>Marketing Campaign</div>
-              <div>149.99$ / annum</div>
-            </div>
-            <div className="grid grid-cols-2 mt-5">
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Social Media Ads</div>{" "}
-              </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Youtube Ads</div>{" "}
-              </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Influencer</div>{" "}
-              </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Email</div>{" "}
-              </div>
-            </div>
+        <div className="md:mt-10 ">
+          <div className="flex justify-between font-semibold text-xl">
+            <div>Active Add Ons</div>
+            <div>View All</div>
           </div>
-          <div className="p-5 border-2 rounded-lg border-gray-700 w-[30vw]">
-            <div className="flex justify-between">
-              <div>Marketing Campaign</div>
-              <div>149.99$ / annum</div>
+          <div className="mt-5 md:flex flex-row justify-start md:space-x-2 space-y-2 md:space-y-0">
+            <div className="p-5 border rounded-lg backdrop-opacity-25 bg-white/10 border-white/40 md:w-[30vw]">
+              <div className="flex justify-between">
+                <div>Marketing Campaign</div>
+                <div>149.99$ / annum</div>
+              </div>
+              <div className="grid grid-cols-2 mt-5">
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Social Media Ads</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Youtube Ads</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Influencer</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Email</div>{" "}
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-2 mt-5">
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Social Media Ads</div>{" "}
+            <div className="p-5 border rounded-lg backdrop-opacity-25 bg-white/10 border-white/40 md:w-[30vw]">
+              <div className="flex justify-between">
+                <div>Marketing Campaign</div>
+                <div>149.99$ / annum</div>
               </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Youtube Ads</div>{" "}
-              </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Influencer</div>{" "}
-              </div>
-              <div className="flex ">
-                {" "}
-                <div>
-                  <TiTick className="text-green-400 text-xl" />
-                </div>{" "}
-                <div>Email</div>{" "}
+              <div className="grid grid-cols-2 mt-5">
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Social Media Ads</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Youtube Ads</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Influencer</div>{" "}
+                </div>
+                <div className="flex ">
+                  {" "}
+                  <div>
+                    <TiTick className="text-green-400 text-xl" />
+                  </div>{" "}
+                  <div>Email</div>{" "}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="text-xl font-semibold mt-5">Albums</div>
+        <div className="text-xl font-semibold mt-10">Albums</div>
 
         <div className="mt-4 flex">
-          <div className="flex flex-col w-[fit] hover:bg-gray-200 p-3 rounded-xl">
+          <div className="flex flex-col w-[fit] hover:bg-white/5 p-3 rounded-xl">
             <Image
               src="/../public/albumCover.jpg"
               width={200}
@@ -274,7 +289,7 @@ const ArtistProfile = () => {
             <div className="font-semibold text-lg mt-3 ml-1">
               Somebody Like U
             </div>
-            <div className="text-gray-600 text-base ml-1">Alan Walker</div>
+            <div className="text-gray-400 text-base ml-1">Alan Walker</div>
           </div>
         </div>
 
@@ -284,7 +299,7 @@ const ArtistProfile = () => {
           {options.map((option) => (
             <label
               key={option.id}
-              className="flex justify-between items-center p-2 last:border-b-0 bg-gray-300 cursor-pointer mb-4 rounded-lg"
+              className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] cursor-pointer mb-4 rounded-lg"
             >
               <input
                 type="checkbox"
@@ -308,32 +323,40 @@ const ArtistProfile = () => {
                   className="w-12 h-12 object-cover rounded-md"
                 />
                 <div className="ml-4">
-                  <p className="text-lg font-bold">{option.title}</p>
-                  <p className="text-sm text-gray-600">{option.writer}</p>
+                  <p className="text-lg font-semibold">{option.title}</p>
+                  <p className="text-sm text-gray-400">{option.writer}</p>
                 </div>
               </div>
-              <div className="flex justify-between w-[25%]">
-                <div className="flex items-center mx-4">
-                  <span className="text-gray-500">
+              <div className="flex justify-between">
+                <div className="flex items-center mx-3 md:mx-36">
+                  <span className="text-white flex justify-center items-center">
                     <BsClock />
                     {option.time}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <TiMediaPlay className="w-6 h-6 text-black" />
-                  <TiDownload className="w-6 h-6 text-black ml-4" />
+                  <TiMediaPlay className="w-6 h-6 text-white" />
+                  <TiDownload className="w-6 h-6 text-white ml-4" />
                 </div>
               </div>
             </label>
           ))}
         </div>
 
-        <div className="flex justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
-          <div>Selected: 1</div>
-          <div className="flex justify-evenly space-x-16 items-center font-bold">
-            <div>Unselect all</div>
-            <div>Select All</div>
-            <div className="pl-16 pr-16 pt-4 pb-4 w-[fit] bg-red-400 rounded-full font-semi">
+        <div className="md:flex md:justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
+          <div className="flex justify-center items-center md:flex-none">
+            Selected: 1
+          </div>
+          <div className="md:flex md:justify-evenly md:space-x-16 items-center font-bold">
+            <div className="flex justify-around md:space-x-16 mt-3 md:mt-0">
+              <div className="md:flex-none flex justify-center items-center">
+                Unselect all
+              </div>
+              <div className="md:flex-none flex justify-center items-center">
+                Select All
+              </div>
+            </div>
+            <div className="flex justify-center items-center md:pl-16 md:pr-16 pt-4 pb-4 mt-5 md:mt-0 w-[fit] bg-gradient-to-r from-blue-700 from-10% to-red-500 rounded-full font-semi">
               Download
             </div>
           </div>
