@@ -26,28 +26,28 @@ const DesktopSidebar = () => {
             </Link>
           </div>
           <ul className={styles['nav-list']}>
-            <li onClick={() => router.push("/ArtistProfile")}>
-              <Link href={''}>
+            <li>
+              <Link href="/artistProfile">
                 <i className="bx bx-grid-alt"></i>
                 <span className={styles['links_name']}>Dashboard</span>
               </Link>
             </li>
             <li>
-              <Link href={''}>
+              <Link href="/EMAC">
                 <i className="bx bx-cloud-upload"></i>
-                <span className={styles['links_name']}>UPLOAD</span>
+                <span className={styles['links_name']}>Emac</span>
               </Link>
             </li>
             <li>
-              <Link href={''}>
+              <Link href="/artist">
                 <i className="bx bx-music"></i>
-                <span className={styles['links_name']}>Music</span>
+                <span className={styles['links_name']}>Artist</span>
               </Link>
             </li>
             <li>
-              <Link href={''}>
+              <Link href="/MusicDetails">
                 <i className="bx bx-album"></i>
-                <span className={styles['links_name']}>Album</span>
+                <span className={styles['links_name']}>MusicDetails</span>
               </Link>
             </li>
             <li>

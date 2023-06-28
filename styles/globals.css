@@ -6,6 +6,7 @@
   /* --bs-pagination-active-color: ""; */
   --pagination-active-bg: #201a2c;
   --pagination-active-border-color: #35235a;
+  background: linear-gradient(70deg, rgb(55, 45, 76) 0%, rgb(32, 31, 39) 100%);
 }
 
 html,body {
@@ -132,3 +133,4 @@ code {
 .service-card:hover a {
   background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
 }
+
