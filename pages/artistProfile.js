@@ -1,7 +1,6 @@
 // import DesktopSidebar from "@/components/DesktopSidebar";
 import Image from "next/image";
 import styles from "../sass/_em-artistProfile.module.scss";
-// import "../sass/_em-artistProfile.scss";
 import React, { useState } from "react";
 import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from './sidebar-desktop.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const DesktopSidebar = () => {
+
+  const router = useRouter(); 
+
   const [user, setUser] = useState({ name: '', accountType: '' });
   const [width, setWidth] = useState('');
 
