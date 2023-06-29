@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './sidebar-desktop.module.css';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 const DesktopSidebar = () => {
@@ -10,11 +11,11 @@ const DesktopSidebar = () => {
   const [user, setUser] = useState({ name: '', accountType: '' });
   const [width, setWidth] = useState('');
 
-  // useEffect(() => {
-  //   if (width > 1000) {
-  //     import("./sidebar-desktop.css");
-  //   }
-  // }, [width]);
+  useEffect(() => {
+    if (width < 1000) {
+      dynamic(() => import("./sidebar-mobile.module.css"));
+    }
+  }, [width]);
 
   return (
     <>
@@ -39,7 +40,7 @@ const DesktopSidebar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/artist">
+              <Link href="/artists">
                 <i className="bx bx-music"></i>
                 <span className={styles['links_name']}>Artist</span>
               </Link>
