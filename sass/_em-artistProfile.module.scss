@@ -1,14 +1,14 @@
 .em-db-content {
-  margin-left: 270px;
-  padding: 40px 24px 30px 24px;
-  width: 100%;
-  position: relative;
-  color: white;
-  min-height: 100vh;
-  z-index: 2;
-  @media screen and (max-width: 767px) {
-    padding: 0;
-  }
+  // margin-left: 270px;
+  // padding: 40px 24px 30px 24px;
+  // width: 100%;
+  // position: relative;
+  // color: white;
+  // min-height: 100vh;
+  // z-index: 2;
+  // @media screen and (max-width: 767px) {
+  //   padding: 0;
+  // }
 }
 
 .em-db-content-title {
@@ -53,12 +53,12 @@
     padding: 12px;
     // max-width: 203px;
     // width: 100%;
-    @media screen and (max-width:480px) {
-      padding: 10px;
-    }
-    & + li {
-      margin-top: 16px;
-    }
+    // @media screen and (max-width:480px) {
+    //   padding: 10px;
+    // }
+    // & + li {
+    //   margin-top: 16px;
+    // }
     i {
       display: block;
       color: #fafafa;
@@ -87,16 +87,16 @@
   }
 }
 
-.em-db-subcription {
-  margin-left: 16px;
-}
+// .em-db-subcription {
+//   margin-left: 16px;
+// }
 
 .em-db-individual {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   // background-color: rgb(207, 203, 203);
-  border: 2px rgb(53, 53, 53) solid;
-  border-radius: 10px;
+  // border: 2px rgb(53, 53, 53) solid;
+  // border-radius: 10px;
 }
 
 .em-my-music {

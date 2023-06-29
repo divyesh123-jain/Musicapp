@@ -8,7 +8,7 @@ import Image from "next/image";
 const MusicDetails = () => {
   return (
     <>
-      <div className={`${styles["em-db-content"]}`}>
+      <div className={`${styles["em-db-content"]} ml-[270px] text-white`}>
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
@@ -31,7 +31,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Track Title
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 I Don&apos;t Think That I like Her
               </div>
             </div>
@@ -39,7 +39,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Primary Artist
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 Che
               </div>
             </div>
@@ -47,7 +47,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Featured Artist
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 Jamjaitian
               </div>
             </div>
@@ -55,7 +55,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Label
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 We are
               </div>
             </div>
@@ -63,7 +63,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Copyright Holder
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 Charlie Puth
               </div>
             </div>
@@ -71,7 +71,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Copyright Year
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 2023
               </div>
             </div>
@@ -79,7 +79,7 @@ const MusicDetails = () => {
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Record Label
               </div>
-              <div className="text-neutral-700 text-[16px] font-medium leading-tight">
+              <div className="text-gray-200 text-[16px] font-medium leading-tight">
                 Independent
               </div>
             </div>
@@ -87,10 +87,10 @@ const MusicDetails = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-2"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           <label className="flex justify-between items-center p-2 border-b border-gray-200 last:border-b-0 relative z-10">
             <div className="flex items-center space-x-6">
-              <TiMediaPlay className="w-6 h-6 text-black" />
+              <TiMediaPlay className="w-6 h-6 text-white" />
               <div className="ml-4 flex items-center space-x-3">
                 <Image
                   src="/../public/albumCover.jpg"
@@ -100,8 +100,8 @@ const MusicDetails = () => {
                   className="w-12 h-12 object-cover rounded-md"
                 />
                 <div>
-                  <p className="text-lg font-bold">Need to know</p>
-                  <p className="text-sm text-gray-600">Doja Cat</p>
+                  <p className="text-lg font-bold text-white">Need to know</p>
+                  <p className="text-sm text-gray-500">Doja Cat</p>
                 </div>
               </div>
             </div>
