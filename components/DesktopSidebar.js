@@ -28,7 +28,7 @@ const DesktopSidebar = () => {
           </div>
           <ul className={styles['nav-list']}>
             <li>
-              <Link href="/ArtistProfile">
+              <Link href="/artistProfile">
                 <i className="bx bx-grid-alt"></i>
                 <span className={styles['links_name']}>Dashboard</span>
               </Link>

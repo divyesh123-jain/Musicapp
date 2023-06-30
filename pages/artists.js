@@ -1,8 +1,8 @@
-import Artists from "@/components/Artists/Artists";
+
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 
-const artists = () => {
+const Artists = () => {
   return (
     <>
       <div class="flex-1  justify-center items-center w-[256px] px-2 sm:px-0">
@@ -30,6 +30,7 @@ const artists = () => {
           <div className="relative group w-[214.8px] h-[207.8px] border-[1px] items-center sm:py-12 px-4 flex flex-col space-y-2 cursor-pointer rounded-xl backdrop-opacity-25 bg-white/10 border-white/40 hover:smooth-hover hover:backdrop-opacity-25 hover:bg-black/20 hover:border-red-500">
             <img
               className="w-[112px] h-[112px]   mx-10 justify-center  object-cover object-center rounded-full"
+              href="/ArtistProfile"
               src="https://via.placeholder.com/112x112"
             />
 
@@ -51,4 +52,4 @@ const artists = () => {
   );
 };
 
-export default artists;
+export default Artists;

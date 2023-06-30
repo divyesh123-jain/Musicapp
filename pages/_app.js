@@ -8,8 +8,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div className='flex'>
         {/* <Sidebar /> */}
-        {/* <DesktopSidebar /> */}
-        <Desktop />
+        <DesktopSidebar />
       <Component {...pageProps} />
     </div>
   )
