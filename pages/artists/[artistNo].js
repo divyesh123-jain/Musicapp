@@ -11,9 +11,8 @@ import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 import { useRouter } from "next/router";
 
 const ArtistProfile = () => {
-
-    const router = useRouter();
-   const artistNumber = router.query.artistNo;
+  const router = useRouter();
+  const artistNumber = router.query.artistNo;
 
   const [checkedItems, setCheckedItems] = useState([]);
 
@@ -306,14 +305,11 @@ const ArtistProfile = () => {
               key={option.id}
               className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] cursor-pointer mb-4 rounded-lg"
             >
-              <input
-                type="checkbox"
-                className="hidden"
-                checked={checkedItems.includes(option.id)}
-                onChange={() => handleCheckboxChange(option.id)}
-              />
               <div className="flex items-center">
-                <div className="mr-4">
+                <div
+                  className="mr-4"
+                  onClick={() => handleCheckboxChange(option.id)}
+                >
                   {checkedItems.includes(option.id) ? (
                     <MdCheckBox className="w-6 h-6 text-red-500" />
                   ) : (
@@ -328,7 +324,15 @@ const ArtistProfile = () => {
                   className="w-12 h-12 object-cover rounded-md"
                 />
                 <div className="ml-4">
-                  <p className="text-lg font-semibold">{option.title}</p>
+                  <p
+                    className="text-lg font-semibold"
+                    onClick={() => {
+                      router.push(`/artists/${option.writer}/${option.title}`);
+                    }}
+                  >
+                    {option.title}
+                  </p>
+
                   <p className="text-sm text-gray-400">{option.writer}</p>
                 </div>
               </div>
