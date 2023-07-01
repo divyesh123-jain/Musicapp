@@ -7,8 +7,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 const MusicDetails = () => {
-    const router = useRouter();
-   const musicNumber = router.query.musicNo;
+  const router = useRouter();
+  const musicNumber = router.query.musicNo;
   return (
     <>
       <div className={`${styles["em-db-content"]} ml-[270px] text-white`}>
