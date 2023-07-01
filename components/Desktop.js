@@ -30,39 +30,25 @@ function SideNavbar() {
             </h1>
             <div className=" my-4 pb-4 ">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                  Dashboard
-                </h3>
+                <h3 className="text-base font-semibold ">Dashboard</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                  EMAC
-                </h3>
+                <h3 className="text-base font-semibold ">EMAC</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                  Artist
-                </h3>
+                <h3 className="text-base font-semibold ">Artist</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                  Music Details
-                </h3>
+                <h3 className="text-base font-semibold ">Music Details</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                Subscription
-                </h3>
+                <h3 className="text-base font-semibold ">Subscription</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                Settings
-                </h3>
+                <h3 className="text-base font-semibold ">Settings</h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 p-2 rounded-lg group cursor-pointer m-auto backdrop-opacity-25 hover:bg-white/10 hover:rounded-xl text-[#fafafa] opacity-60 hover:text-white hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-base font-semibold ">
-                Log Out
-                </h3>
+                <h3 className="text-base font-semibold ">Log Out</h3>
               </div>
             </div>
           </div>
