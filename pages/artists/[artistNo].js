@@ -327,7 +327,7 @@ const ArtistProfile = () => {
                   <p
                     className="text-lg font-semibold"
                     onClick={() => {
-                      router.push(`/artists/${option.writer}/${option.title}`);
+                      router.push(`/artists/${artistNumber}/${option.title}`);
                     }}
                   >
                     {option.title}
