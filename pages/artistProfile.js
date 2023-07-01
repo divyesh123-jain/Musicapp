@@ -296,51 +296,48 @@ const ArtistProfile = () => {
         <div className="text-xl font-semibold mt-5">All Singles</div>
 
         <div>
-          {options.map((option) => (
-            <label
-              key={option.id}
-              className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] cursor-pointer mb-4 rounded-lg"
-            >
-              <input
-                type="checkbox"
-                className="hidden"
-                checked={checkedItems.includes(option.id)}
-                onChange={() => handleCheckboxChange(option.id)}
-              />
-              <div className="flex items-center">
-                <div className="mr-4">
-                  {checkedItems.includes(option.id) ? (
-                    <MdCheckBox className="w-6 h-6 text-red-500" />
-                  ) : (
-                    <MdCheckBoxOutlineBlank className="w-6 h-6" />
-                  )}
-                </div>
-                <Image
-                  src="/../public/albumCover.jpg"
-                  alt="album cover"
-                  width={50}
-                  height={50}
-                  className="w-12 h-12 object-cover rounded-md"
-                />
-                <div className="ml-4">
-                  <p className="text-lg font-semibold">{option.title}</p>
-                  <p className="text-sm text-gray-400">{option.writer}</p>
-                </div>
-              </div>
-              <div className="flex justify-between">
-                <div className="flex items-center mx-3 md:mx-36">
-                  <span className="text-white flex justify-center items-center">
-                    <BsClock />
-                    {option.time}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <TiMediaPlay className="w-6 h-6 text-white" />
-                  <TiDownload className="w-6 h-6 text-white ml-4" />
-                </div>
-              </div>
-            </label>
-          ))}
+        {options.map((option) => (
+  <label
+    key={option.id}
+    className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] cursor-pointer mb-4 rounded-lg"
+  >
+    <div className="flex items-center">
+      <div className="mr-4" onClick={() => handleCheckboxChange(option.id)}>
+        {checkedItems.includes(option.id) ? (
+          <MdCheckBox className="w-6 h-6 text-red-500" />
+        ) : (
+          <MdCheckBoxOutlineBlank className="w-6 h-6" />
+        )}
+      </div>
+      <Image
+        src="/../public/albumCover.jpg"
+        alt="album cover"
+        width={50}
+        height={50}
+        className="w-12 h-12 object-cover rounded-md"
+      />
+      <div className="ml-4">
+        <p className="text-lg font-semibold">{option.title}</p>
+        <p className="text-sm text-gray-400">{option.writer}</p>
+      </div>
+    </div>
+    <div className="flex justify-between">
+      <div className="flex items-center mx-3 md:mx-36">
+        <span className="text-white flex justify-center items-center">
+          <BsClock />
+          {option.time}
+        </span>
+      </div>
+      <div className="flex items-center">
+        <TiMediaPlay className="w-6 h-6 text-white" />
+        <TiDownload className="w-6 h-6 text-white ml-4" />
+      </div>
+    </div>
+  </label>
+))}
+
+
+
         </div>
 
         <div className="md:flex md:justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
