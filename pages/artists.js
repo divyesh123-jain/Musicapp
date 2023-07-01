@@ -1,8 +1,9 @@
-
+import { useRouter } from "next/router";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 
 const Artists = () => {
+  const router = useRouter();
   return (
     <>
       <div class="flex-1  justify-center items-center w-[256px] px-2 sm:px-0">
@@ -26,7 +27,7 @@ const Artists = () => {
           </div>
         </div>
 
-        <div className=" mx-72  sm:mb-0 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center lg:grid-cols-4">
+        <div className=" mx-72  sm:mb-0 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center lg:grid-cols-4" onClick={ () => {router.push("/artists/name")}}>
           <div className="relative group w-[214.8px] h-[207.8px] border-[1px] items-center sm:py-12 px-4 flex flex-col space-y-2 cursor-pointer rounded-xl backdrop-opacity-25 bg-white/10 border-white/40 hover:smooth-hover hover:backdrop-opacity-25 hover:bg-black/20 hover:border-red-500">
             <img
               className="w-[112px] h-[112px]   mx-10 justify-center  object-cover object-center rounded-full"
