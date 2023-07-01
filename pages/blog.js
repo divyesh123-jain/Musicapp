@@ -1,3 +1,5 @@
+import EditMemberCard from "@/components/EditMemberCard";
+import EditMarketingCard from "@/components/EditMarketingCard";
 import Image from "next/image";
 import React from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
@@ -90,6 +92,15 @@ const blog = () => {
             PUBLISH
           </div>
         </div>
+
+        <div>
+            <EditMemberCard />
+        </div>
+
+        <div className="mt-10">
+            <EditMarketingCard />
+        </div>
+
       </div>
     </div>
   );
