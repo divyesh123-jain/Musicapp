@@ -38,7 +38,7 @@ const Subscription = () => {
                   <div>Influencer</div>{" "}
                 </div>
                 <div className="flex ">
-                  {" "}
+               
                   <div>
                     <TiTick className="text-green-400 text-xl" />
                   </div>{" "}
