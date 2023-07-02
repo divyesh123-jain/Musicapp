@@ -23,8 +23,8 @@ const EditMemberCard = () => {
                       </span>
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pt-4 pb-2 z-10 text-sm text-gray-200">
-                      If you're unhappy with your purchase for any reason, email
-                      us within 90 days and we'll refund you in full, no
+                      If you`re unhappy with your purchase for any reason, email
+                      us within 90 days and we`ll refund you in full, no
                       questions asked.
                     </Disclosure.Panel>
                   </>
