@@ -56,7 +56,11 @@ const ArtistProfile = () => {
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
-          <BsArrowLeftCircle className={styles["em-db-content-title-icon"]} />
+          <BsArrowLeftCircle className={`${styles["em-db-content-title-icon"]} cursor-pointer`} 
+            onClick={() => {
+              router.push(`/artists/`);
+            }}
+          />
           <h2 className="text-white">Artist Profile</h2>
         </div>
 
