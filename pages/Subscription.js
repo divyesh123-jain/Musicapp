@@ -1,8 +1,20 @@
 import React from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 
 const Subscription = () => {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
     <>
       <div class="md:ml-[270px] min-h-[100vh] text-white p-5">
@@ -53,10 +65,103 @@ const Subscription = () => {
                 </div>
               </div>
               <div className="space-y-3 md:space-y-0 mt-5 md:flex md:justify-between">
-                <div className="pl-16 pr-16 pt-2 pb-2 text-gray-200 bg-gray-900 rounded-full flex justify-center items-center">
+                <div
+                  className="pl-16 pr-16 pt-2 pb-2 text-gray-200 bg-gray-900 rounded-full flex justify-center items-center cursor-pointer"
+                  onClick={openModal}
+                >
                   EDIT
                 </div>
-                <div className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full flex justify-center items-center">
+
+                {isOpen && (
+                  <Transition.Root show={isOpen} as={Fragment}>
+                    <Dialog
+                      as="div"
+                      className="fixed inset-0 z-10 overflow-y-auto"
+                      onClose={closeModal}
+                    >
+                      <div className="flex items-center justify-center min-h-screen p-4">
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+                        </Transition.Child>
+
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <div>
+                            <div className="w-[510px]  bg-black p-7 rounded-3xl relative">
+                              <div className="font-semibold text-white/90">
+                                Edit Marketing Campaign Service:
+                              </div>
+                              <div className="w-full pt-1">
+                                <div className="mt-7">
+                                  <div>
+                                    <div className="text-white/90">Title</div>
+                                    <div className="mt-3">
+                                      <div class="relative flex items-center w-[90%] md:w-[95%] h-[45px] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
+                                        <input
+                                          class="peer h-full w-full outline-none text-xl p-2 backdrop-opacity-25 bg-white/5 border-white/40 pr-2"
+                                          type="text"
+                                          id="search"
+                                          placeholder="Marketing Campaign"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="mt-5">
+                                    <div className="text-white/90">
+                                      Price/ annum
+                                    </div>
+                                    <div className="mt-3">
+                                      <div class="relative flex items-center w-[90%] md:w-[95%] h-[45px] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
+                                        <input
+                                          class="peer h-full w-full outline-none text-xl p-2 backdrop-opacity-25 bg-white/5 border-white/40 pr-2"
+                                          type="text"
+                                          id="search"
+                                          placeholder="149.99"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex justify-end space-x-10 items-center mt-10">
+                                <div
+                                  className="text-white/90 cursor-pointer"
+                                  onClick={closeModal}
+                                >
+                                  Cancel
+                                </div>
+                                <div
+                                  className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full cursor-pointer"
+                                  onClick={closeModal}
+                                >
+                                  Save
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Transition.Child>
+                      </div>
+                    </Dialog>
+                  </Transition.Root>
+                )}
+
+                <div className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full flex justify-center items-center cursor-pointer">
                   DEACTIVATE
                 </div>
                 <div></div>
