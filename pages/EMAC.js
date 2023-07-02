@@ -4,7 +4,7 @@ import React from "react";
 const EMAC = () => {
   return (
     <>
-      <div className="ml-[270px] pt-10 pr-6 pb-8 pl-6">
+      <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
         <div>
           <div className="text-3xl text-white font-bold">
             <span className="text-red-400 to">Emergence Music Ambassadors</span>{" "}

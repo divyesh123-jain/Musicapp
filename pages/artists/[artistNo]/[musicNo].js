@@ -8,15 +8,31 @@ import { useRouter } from "next/router";
 
 const MusicDetails = () => {
   const router = useRouter();
+  const artistName = router.query.artistNo;
   const musicNumber = router.query.musicNo;
   return (
     <>
-      <div className={`${styles["em-db-content"]} ml-[270px] text-white`}>
-        <div
+      <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
+        {/* <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
-          <BsArrowLeftCircle className={styles["em-db-content-title-icon"]} />
-          <h2>{musicNumber}</h2>
+          <BsArrowLeftCircle
+            className={`${styles["em-db-content-title-icon"]} cursor-pointer`}
+            onClick={() => {
+              router.push(`/artists/${artistName}/`);
+            }}
+          />
+          <h2>{musicNumber}</h2>z
+        </div> */}
+        <div className="align-items-center justify-content-between flex text-white">
+          <BsArrowLeftCircle className="text-[30px] flex justify-center items-center cursor-pointer" 
+            onClick={() => {
+              router.push(`/artists/${artistName}/`);
+            }}
+          />
+          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
+          {musicNumber}
+          </h2>
         </div>
         <div
           className={`${styles["em-db-content-body"]} grid lg:grid-cols-3 grid-cols-1 p-3 mt-2 space-x-2`}
@@ -29,7 +45,7 @@ const MusicDetails = () => {
             />
           </div>
 
-          <div className="left-[46px] grid grid-cols-2 gap-4">
+          <div className="left-[46px] grid grid-cols-2 gap-4 mt-5 md:mt-0">
             <div className="flex-col justify-start items-start gap-2 flex">
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Track Title
