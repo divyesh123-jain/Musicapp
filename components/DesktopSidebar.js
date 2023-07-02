@@ -52,15 +52,15 @@ const DesktopSidebar = () => {
               </Link>
             </li>
             <li>
-              <Link href={''}>
+              <Link href="/Subscription">
                 <i className="bx bx-crown"></i>
                 <span className={styles['links_name']}>Subscription</span>
               </Link>
             </li>
             <li>
-              <Link href={''}>
+              <Link href="/blog">
                 <i className="bx bx-cog"></i>
-                <span className={styles['links_name']}>Settings</span>
+                <span className={styles['links_name']}>Blogs</span>
               </Link>
             </li>
             <li>
