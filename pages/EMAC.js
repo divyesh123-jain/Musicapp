@@ -7,24 +7,23 @@ const EMAC = () => {
       <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
         <div>
           <div className="text-3xl text-white font-bold">
-            <span className="text-red-400 to">Emergence Music Ambassadors</span>{" "}
-            Clubs Standings
+            <span className="text-red-400 to">Emergence Music Ambassadors</span> Clubs Standings
           </div>
           <div className="text-gray-400 mt-2 text-lg font-semibold">
             Season 2023
           </div>
         </div>
 
-        <div className="mt-10 ">
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg w-[76vw] text-lg p-3 mt-3">
+        <div className="mt-10">
+          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3">
             <div className="w-1/6">Ranking</div>
             <div className="w-1/6">Artist</div>
             <div className="w-1/6">Country</div>
             <div className="w-1/6">Genre</div>
-            <div className="w-1/6">Track</div>
+            <div className="w-2/6">Track</div>
             <div className="w-1/6">TSS</div>
           </div>
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20  rounded-lg w-[76vw] text-lg p-3 mt-3">
+          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3">
             <div className="w-1/6">1</div>
             <div className="w-1/6 flex justify-center items-center space-x-2">
               <div>
@@ -47,14 +46,14 @@ const EMAC = () => {
                         rounded-lg
                       />
                     </div>
-                    <div className="">AWB | Artist With Benefit</div>
+                    <div className="whitespace-nowrap">AWB | Artist With Benefit</div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="w-1/6 ml-3">USA</div>
             <div className="w-1/6">POP</div>
-            <div className="w-1/6">We Don&apos;t Talk Anymore</div>
+            <div className="w-2/6 overflow-hidden">We Don&apos;t Talk Anymore</div>
             <div className="w-1/6">123</div>
           </div>
         </div>
