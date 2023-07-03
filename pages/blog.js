@@ -93,13 +93,7 @@ const blog = () => {
           </div>
         </div>
 
-        <div>
-            <EditMemberCard />
-        </div>
-
-        <div className="mt-10">
-            <EditMarketingCard />
-        </div>
+       
 
       </div>
     </div>
