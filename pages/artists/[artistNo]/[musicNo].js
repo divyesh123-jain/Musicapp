@@ -13,25 +13,15 @@ const MusicDetails = () => {
   return (
     <>
       <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
-        {/* <div
-          className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
-        >
-          <BsArrowLeftCircle
-            className={`${styles["em-db-content-title-icon"]} cursor-pointer`}
-            onClick={() => {
-              router.push(`/artists/${artistName}/`);
-            }}
-          />
-          <h2>{musicNumber}</h2>z
-        </div> */}
         <div className="align-items-center justify-content-between flex text-white">
-          <BsArrowLeftCircle className="text-[30px] flex justify-center items-center cursor-pointer" 
+          <BsArrowLeftCircle
+            className="text-[30px] flex justify-center items-center cursor-pointer"
             onClick={() => {
               router.push(`/artists/${artistName}/`);
             }}
           />
           <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
-          {musicNumber}
+            {musicNumber}
           </h2>
         </div>
         <div
