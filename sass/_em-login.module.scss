@@ -1,0 +1,173 @@
+.em-signup-section {
+     background: linear-gradient(90deg, #f7522b 0%, #941f7a 100%);
+    background: linear-gradient(90deg,#212129,#3e2b47 50%,#35222d);
+    overflow: hidden;
+    font-family: "SfPro";
+    .em-row {
+      align-items: center;
+    }
+  }
+  
+  .em-signup {
+    font-family: "SfPro";
+    background: #1e1f26;
+    padding: 64px 40px;
+    height: 900px;
+    overflow-y: auto;
+    h3 {
+      white-space: nowrap;
+      font-family: "SfPro";
+      font-weight: 600;
+      line-height: 35px;
+      color: #ffffff;
+      margin: 0;
+    }
+    em {
+      font-family: "SfPro";
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      font-style: normal;
+      display: block;
+      margin-top: 16px;
+    }
+  }
+  .em-form {
+    margin-top: 40px;
+  
+    label {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 8px;
+      color: #A1A1A1;
+      cursor: pointer;
+    }
+    .form-control {
+      border: 0.8px solid #a1a1a1;
+      border-radius: 8px;
+      padding: 15px 40px 16px 16px;
+      background: transparent;
+      color: #ffffff;
+  
+      &:active {
+        background: transparent;
+        color: #ffffff;
+      }
+      &:focus {
+        background: transparent;
+        color: #ffffff;
+      }
+    }
+  }
+  .em-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: 18px;
+      color: #ffffff;
+      position: absolute;
+      right: 18px;
+    }
+  }
+  .em-form-group {
+    margin-top: 24px;
+    a {
+      display: inline-block;
+      color: #fe465a;
+      font-family: SfPro;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      width: 100%;
+      text-align: end;
+      margin: 16px 0 0 0;
+      text-decoration: none;
+    }
+  }
+  .em-sign-in-btn {
+    font-family: "SfPro" !important;
+    white-space: nowrap;
+    padding: 1rem !important;
+    background: #6e6e6e;
+    border-radius: 80px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    color: #ffffff;
+    width: -webkit-fill-available;
+    text-decoration: none;
+    &:hover {
+      background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
+      color: #ffffff;
+    }
+    &.active {
+      background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
+      color: #ffffff;
+    }
+  }
+  .em-Sign-up-btn {
+    font-family: "SfPro" !important;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ef3c5a;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  .em-account-login {
+    font-family: "SfPro" !important;
+    color: #ffffff;
+    display: block;
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  
+  .em-info {
+    max-width: 610px;
+    margin: 0 auto;
+  
+    figure {
+      margin: 0;
+      text-align: center;
+    }
+    p {
+      margin: 41px 0 0 0;
+      font-family: SfPro;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 25px;
+      color: #a1a1a1;
+    }
+  }
+
+  .textarea-class:hover,
+.input-class:hover,
+.textarea-class:active,
+.input-class:active,
+.textarea-class:focus,
+.input-class:focus,
+.button-class:focus,
+.button-class:active,
+.button-class:hover,
+.label-class:focus,
+.btn.active,
+.btn.active {
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+  // 
+  .em-signup-section .em-signup ::placeholder {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
