@@ -16,6 +16,7 @@ import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 import { useRouter } from "next/router";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import DropDown from "@/components/DropDown";
 
 const ArtistProfile = () => {
   const router = useRouter();
@@ -137,13 +138,13 @@ const ArtistProfile = () => {
                           leaveTo="opacity-0 scale-95"
                         >
                           <div>
-                            <div className="w-[500px] bg-black rounded-3xl relative p-7">
+                            <div className="w-[500px] bg-black rounded-3xl p-7">
                               <div className="font-semibold text-white/90">
                                 Edit Membership:
                               </div>
-                              <div className="mt-3 text-gray-400">
+                              <div className="mt-3 text-gray-400 relative">
                                 Select Ambassador Program
-                                <div className="w-full pt-1">
+                                {/* <div className="w-full pt-1">
                                   <div className="mx-auto w-full max-w-md rounded-lg border backdrop-opacity-25 bg-white/10 border-white/40 p-2">
                                     <Disclosure>
                                       {({ open }) => (
@@ -170,9 +171,10 @@ const ArtistProfile = () => {
                                       )}
                                     </Disclosure>
                                   </div>
-                                </div>
+                                </div> */}
+                                <DropDown />
                               </div>
-                              <div className="flex justify-end space-x-10 items-center mt-10">
+                              <div className="flex justify-end space-x-10 items-center mt-16">
                                 <div
                                   className="text-white cursor-pointer"
                                   onClick={closeModal}
