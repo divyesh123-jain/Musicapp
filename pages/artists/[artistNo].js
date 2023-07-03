@@ -2,19 +2,36 @@
 import Image from "next/image";
 import styles from "../../sass/_em-artistProfile.module.scss";
 import React, { useState } from "react";
-import { BsArrowLeftCircle, BsClock, BsMusicNote } from "react-icons/bs";
+import {
+  BsArrowLeftCircle,
+  BsChevronDown,
+  BsClock,
+  BsMusicNote,
+} from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { TiMediaPlay, TiDownload } from "react-icons/ti";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 import { useRouter } from "next/router";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
 const ArtistProfile = () => {
   const router = useRouter();
   const artistNumber = router.query.artistNo;
 
+  let [isOpen, setIsOpen] = useState(false);
+
   const [checkedItems, setCheckedItems] = useState([]);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   const handleCheckboxChange = (value) => {
     if (checkedItems.includes(value)) {
@@ -56,7 +73,8 @@ const ArtistProfile = () => {
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
-          <BsArrowLeftCircle className={`${styles["em-db-content-title-icon"]} cursor-pointer`} 
+          <BsArrowLeftCircle
+            className={`${styles["em-db-content-title-icon"]} cursor-pointer`}
             onClick={() => {
               router.push(`/artists/`);
             }}
@@ -83,7 +101,97 @@ const ArtistProfile = () => {
             </div>
             <div className="flex justify-between mt-3 p-1 backdrop-opacity-25 bg-black/50 rounded-full text-gray-300">
               <div>
-                <IoTicket className="text-5xl flex justify-center items-center ml-4 mt-2" />
+                <IoTicket
+                  className="text-5xl flex justify-center items-center ml-4 mt-2 cursor-pointer"
+                  onClick={openModal}
+                />
+
+                {isOpen && (
+                  <Transition.Root show={isOpen} as={Fragment}>
+                    <Dialog
+                      as="div"
+                      className="fixed inset-0 z-10 overflow-y-auto"
+                      onClose={closeModal}
+                    >
+                      <div className="flex items-center justify-center min-h-screen p-4">
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+                        </Transition.Child>
+
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <div>
+                            <div className="w-[500px] bg-black rounded-3xl relative p-7">
+                              <div className="font-semibold text-white/90">
+                                Edit Membership:
+                              </div>
+                              <div className="mt-3 text-gray-400">
+                                Select Ambassador Program
+                                <div className="w-full pt-1">
+                                  <div className="mx-auto w-full max-w-md rounded-lg border backdrop-opacity-25 bg-white/10 border-white/40 p-2">
+                                    <Disclosure>
+                                      {({ open }) => (
+                                        <>
+                                          <Disclosure.Button className=" flex items-center justify-between w-[90%] h-[40px] text-gray-200  rounded-lg overflow-hidden">
+                                            <span>Wild Card Sound</span>
+                                            <span>
+                                              <BsChevronDown
+                                                className={`${
+                                                  open
+                                                    ? "rotate-180 transform"
+                                                    : ""
+                                                } `}
+                                              />
+                                            </span>
+                                          </Disclosure.Button>
+                                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-200">
+                                            If you`re unhappy with your purchase
+                                            for any reason, email us within 90
+                                            days and we`ll refund you in full,
+                                            no questions asked.
+                                          </Disclosure.Panel>
+                                        </>
+                                      )}
+                                    </Disclosure>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex justify-end space-x-10 items-center mt-10">
+                                <div
+                                  className="text-white cursor-pointer"
+                                  onClick={closeModal}
+                                >
+                                  Cancel
+                                </div>
+                                <div
+                                  className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full cursor-pointer"
+                                  onClick={closeModal}
+                                >
+                                  Save
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Transition.Child>
+                      </div>
+                    </Dialog>
+                  </Transition.Root>
+                )}
               </div>
               <div className="flex flex-col mr-3">
                 <div className="font-semibold bg-gradient-to-r from-blue-400 via-pink-500 text-transparent bg-clip-text">
