@@ -1,11 +1,42 @@
 import EditMemberCard from "@/components/EditMemberCard";
 import EditMarketingCard from "@/components/EditMarketingCard";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { TbPhotoUp } from "react-icons/tb";
+import { MdDelete } from "react-icons/md";
 
 const blog = () => {
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [isImageUploaded, setIsImageUploaded] = useState(false);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setUploadedImage(file);
+      setPreviewImage(reader.result);
+      setIsImageUploaded(true);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const deleteImage = () => {
+    setUploadedImage(null);
+    setPreviewImage(null);
+    setIsImageUploaded(false);
+
+    const fileInput = document.getElementById("artwork");
+    if (fileInput) {
+      fileInput.value = ""; // Reset the value of the file input element
+    }
+  };
+
   return (
     <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
       <div className="align-items-center justify-content-between flex text-white">
@@ -27,9 +58,20 @@ const blog = () => {
             <div className="font-bold text-xl ">
               Drag & Drop files here to upload
             </div>
-            <div className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full">
+
+            <input
+              type="file"
+              id="artwork"
+              accept="image/*"
+              className="hidden"
+              onChange={handleImageUpload}
+            />
+            <label
+              htmlFor="artwork"
+              className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full cursor-pointer"
+            >
               Browse Artwork
-            </div>
+            </label>
           </div>
         </div>
 
@@ -63,11 +105,33 @@ const blog = () => {
             </div>
           </div>
 
-          {/* uploaded image */}
-          <div className="m-3">
-            <div className=" overflow-hidden rounded-lg">
-              <Image src="/../public/albumCover.jpg" width={250} height={200} />
+          <div className="m-3 relative w-[400px] h-[250px] ">
+            <div className="overflow-hidden w-[300px] h-auto rounded-[13px]">
+              {previewImage ? (
+                <Image
+                  src={previewImage}
+                  alt="Uploaded Artwork"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-[13px]"
+                />
+              ) : (
+                <Image
+                  src="/../public/albumCover.jpg"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-[13px]"
+                />
+              )}
             </div>
+            {isImageUploaded && (
+              <button
+                className=" absolute w-[40px] h-[40px] top-0 right-0 mt-[12px] mr-[18px] bg-gray-500 backdrop-blur-sm text-gray-900 hover:text-red-500 rounded-[13px]"
+                onClick={deleteImage}
+              >
+                <MdDelete className="text-3xl "/>
+              </button>
+            )}
           </div>
         </div>
 
@@ -85,16 +149,11 @@ const blog = () => {
         </div>
 
         <div className="flex justify-end space-x-10 items-center mt-10">
-          <div>
-            Reset
-          </div>
+          <div>Reset</div>
           <div className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full">
             PUBLISH
           </div>
         </div>
-
-       
-
       </div>
     </div>
   );
