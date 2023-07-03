@@ -12,15 +12,15 @@ const Artists = () => {
           <h3 class=" mt-12 text-4xl text-white">All Artists</h3>
         </div> */}
         <div className="align-items-center justify-content-between flex text-white">
-          <BsArrowLeftCircle className="text-[30px] flex justify-center items-center" />
-          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
-            Artist Profile
+          {/* <BsArrowLeftCircle className="text-[30px] flex justify-center items-center" /> */}
+          <h2 className="text-white ml-[10px]  mt-[52px] font-sf-pro-text text-4xl font-semibold tracking-normal text-left ">
+            All Artists
           </h2>
         </div>
 
         {/* ----search------ */}
         <div class="max-w-md pt-5 ">
-          <div class="relative flex items-center w-[80vw] md:w-[70vw] h-[56px] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
+          <div class="relative flex items-center mt-[20px] w-[80vw] md:w-[70vw] h-[56px] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
             <input
               class="peer h-full w-full outline-none text-xl p-2 backdrop-opacity-25 bg-white/10 border-white/40 pr-2"
               type="text"
