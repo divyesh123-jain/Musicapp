@@ -102,7 +102,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="md:flex-row mt-10 flex-">
+        <div className=" md:flex mt-10">
           {/* blog title and subject */}
           <div>
             <div>
