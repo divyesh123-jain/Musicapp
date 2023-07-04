@@ -20,7 +20,8 @@ const EMAC = () => {
       <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div>
           <div className="text-2xl md:text-3xl text-white font-bold">
-            <span className="text-red-400 to">Emergence Music Ambassadors</span> Clubs Standings
+            <span className="text-red-400 to">Emergence Music Ambassadors</span>{" "}
+            Clubs Standings
           </div>
           <div className="text-gray-400 mt-2 text-lg font-semibold">
             Season 2023
@@ -35,8 +36,10 @@ const EMAC = () => {
             <div className="w-2/6">Track</div>
             <div className="w-1/6">TSS</div>
           </div>
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3" onClick={openModal}>
-
+          <div
+            className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3"
+            onClick={openModal}
+          >
             <Transition.Root show={isOpen} as={Fragment}>
               <Dialog
                 as="div"
@@ -69,14 +72,18 @@ const EMAC = () => {
                         rounded-lg
                       />
                     </div>
-                    <div className="whitespace-nowrap text-xs">AWB | Artist With Benefit</div>
+                    <div className="whitespace-nowrap text-xs">
+                      AWB | Artist With Benefit
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="hidden md:block w-1/6 ml-3">USA</div>
             <div className="w-1/6">POP</div>
-            <div className="w-2/6 overflow-hidden">We Don&apos;t Talk Anymore</div>
+            <div className="w-2/6 overflow-hidden">
+              We Don&apos;t Talk Anymore
+            </div>
             <div className="w-1/6">123</div>
           </div>
         </div>
@@ -90,9 +97,6 @@ const EMAC = () => {
 };
 
 export default EMAC;
-
-
-
 
 // import Image from "next/image";
 // import EMACpop from "../components/EMACpop";
