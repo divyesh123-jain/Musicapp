@@ -5,7 +5,7 @@ import { BsChevronDown } from "react-icons/bs";
 const EditMemberCard = () => {
   return (
     <div>
-      <div className="w-[500px] h-[250px] bg-black/50 p-[20px] rounded-3xl relative">
+      <div className="scale-50 md:w-[500px] md:h-[250px] bg-black/50 p-[20px] rounded-3xl relative">
         <div className="font-semibold">Edit Membership:</div>
         <div className="mt-3 text-gray-400">
           Select Ambassador Program

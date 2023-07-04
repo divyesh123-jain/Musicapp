@@ -1,14 +1,14 @@
 /* Google Font Link */
 *
 .sidebar {
-    position: fixed;
+    /* position: fixed;
     left: 0;
-    top: 0;
-    width: 260px;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 6px 14px;
-    z-index: 99;
-    height: 100%;
+    top: 0; */
+    /* width: 260px; */
+    /* background: rgba(0, 0, 0, 0.4); */
+    /* padding: 6px 14px; */
+    /* z-index: 99; */
+    height: 100vh;
     transition: all 0.5s ease;
     overflow: hidden;
   }

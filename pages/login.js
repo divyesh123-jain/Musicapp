@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import styles from "../sass/_em-login.module.scss";
+import { BsEyeFill } from "react-icons/bs";
+import { AiFillEyeInvisible } from "react-icons/ai";
 
 function Login() {
   const [credential, setCredential] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
@@ -20,23 +22,27 @@ function Login() {
   };
 
   return (
-    <section className={styles["em-signup-section"]}>
-      <div className={styles["em-row"]}>
+    <section className={`${styles["em-signup-section"]} z-[100] `}>
+      <div className={`${styles["em-row"]} `}>
         <div className={styles["col-4"]}>
           <div className={styles["em-signup"]}>
-            <h3 className={styles["em-welcome"]}>
+            <h3
+              className={`${styles["em-welcome"]} text-3xl flex justify-center items-center`}
+            >
               Welcome to Emergence <i className={styles["em-eyeglass"]}></i>
             </h3>
-            <em>Enter your email address and password to access your account.</em>
-            <div className={styles["em-form"]}>
-              <div className={styles["em-form-group"]}>
+            <div className="flex justify-start text-lg text-gray-400">
+              Enter your email address and password to access your account.
+            </div>
+            <div className={`${styles["em-form"]} relative`}>
+              <div className={`${styles["em-form-group"]}`}>
                 <label htmlFor="email">Email address</label>
-                <div className={styles["em-input"]}>
+                <div className={`${styles["em-input"]}`}>
                   <input
                     onChange={handleChange}
                     name="email"
                     type="email"
-                    className={styles["form-control"]}
+                    className={`${styles["form-control"]} w-[100%] flex justify-start border`}
                     id="email"
                     placeholder="Enter email address"
                   />
@@ -49,24 +55,42 @@ function Login() {
                   <input
                     onChange={handleChange}
                     name="password"
-                    type={showPassword ? 'text' : 'password'}
-                    className={`${styles["form-control"]} ${styles["em-hasicon"]}`}
+                    type={showPassword ? "text" : "password"}
+                    className={`${styles["form-control"]} ${styles["em-hasicon"]}  w-[100%] flex justify-start border`}
                     id="password"
                     placeholder="Enter password"
                   />
-                  <i
+                  {/* <i
                     className={`fa-solid ${showPassword ? 'fa-eye-slash' : styles["em-eye"]}`}
                     onClick={() => setShowPassword(!showPassword)}
-                  ></i>
+                  ></i> */}
+                  {!showPassword ? (
+                    <i onClick={() => setShowPassword(!showPassword)}>
+                      {" "}
+                      <BsEyeFill />{" "}
+                    </i>
+                  ) : (
+                    <i onClick={() => setShowPassword(!showPassword)}>
+                      {" "}
+                      <AiFillEyeInvisible />{" "}
+                    </i>
+                  )}
                 </div>
                 {/* { errors.password ? <ErrorMessage message={errors.password}/> : ''} */}
                 <Link href="/forget-password">Forgot Password?</Link>
               </div>
               <div>
                 {/* <button onClick={login} className={styles["em-sign-in-btn"]}> SIGN IN </button> */}
+                <div className="flex justify-center items-center pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full text-xl mt-6">
+                  Sign In
+                </div>
               </div>
               <span className={styles["em-account-login"]}>
-                Don’t have an account? <Link href="/signup" className={styles["em-Sign-up-btn"]}> Sign up <i className={styles["em-infinity"]}></i> </Link>
+                Don’t have an account?{" "}
+                <Link href="/signup" className={styles["em-Sign-up-btn"]}>
+                  {" "}
+                  Sign up <i className={styles["em-infinity"]}></i>{" "}
+                </Link>
               </span>
             </div>
           </div>

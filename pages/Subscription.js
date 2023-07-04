@@ -17,7 +17,7 @@ const Subscription = () => {
 
   return (
     <>
-      <div class="md:ml-[270px] min-h-[100vh] text-white p-5">
+      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div className="align-items-center justify-content-between flex text-white">
           <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
             Subscriptions
@@ -64,7 +64,7 @@ const Subscription = () => {
                   <div>Email</div>{" "}
                 </div>
               </div>
-              <div className="space-y-3 md:space-y-0 mt-5 md:flex md:justify-between">
+              <div className="flex flex-col space-y-3 md:space-y-0 mt-5 md:flex md:flex-row md:justify-between">
                 <div
                   className="pl-16 pr-16 pt-2 pb-2 text-gray-200 bg-gray-900 rounded-full flex justify-center items-center cursor-pointer"
                   onClick={openModal}
@@ -102,7 +102,7 @@ const Subscription = () => {
                           leaveTo="opacity-0 scale-95"
                         >
                           <div>
-                            <div className="w-[510px]  bg-black p-7 rounded-3xl relative">
+                            <div className="w-[70vw] md:w-[510px]  bg-black p-7 rounded-3xl relative">
                               <div className="font-semibold text-white/90">
                                 Edit Marketing Campaign Service:
                               </div>
