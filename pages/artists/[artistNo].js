@@ -1,7 +1,7 @@
 // import DesktopSidebar from "@/components/DesktopSidebar";
 import Image from "next/image";
 import styles from "../../sass/_em-artistProfile.module.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BsArrowLeftCircle,
   BsChevronDown,
@@ -10,7 +10,7 @@ import {
 } from "react-icons/bs";
 import { BiSolidCrown } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
-import { TiTick } from "react-icons/ti";
+import { TiMediaPause, TiTick } from "react-icons/ti";
 import { TiMediaPlay, TiDownload } from "react-icons/ti";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 import { useRouter } from "next/router";
@@ -43,6 +43,14 @@ const ArtistProfile = () => {
     }
   };
 
+  const [isPlaying, setIsPlaying] = useState([]);
+
+  const handlePlayPause = (index) => {
+    const updatedIsPlaying = [...isPlaying];
+    updatedIsPlaying[index] = !updatedIsPlaying[index];
+    setIsPlaying(updatedIsPlaying);
+  };
+
   const options = [
     {
       id: 1,
@@ -66,6 +74,14 @@ const ArtistProfile = () => {
       time: "10:00",
     },
   ];
+
+  const initializeIsPlaying = () => {
+    setIsPlaying(new Array(options.length).fill(false));
+  };
+
+  useEffect(() => {
+    initializeIsPlaying();
+  }, []);
 
   return (
     <>
@@ -101,12 +117,12 @@ const ArtistProfile = () => {
             <div className=" font-semibold text-2xl flex justify-center items-center mt-5 md:mt-0">
               {artistNumber}
             </div>
-            <div className="flex justify-between mt-3 p-1 backdrop-opacity-25 bg-black/50 rounded-full text-gray-300">
+            <div
+              className=" flex justify-center space-x-4 mt-3 p-1 backdrop-opacity-25 bg-black/50 rounded-full text-gray-300 cursor-pointer"
+              onClick={openModal}
+            >
               <div>
-                <IoTicket
-                  className="text-5xl flex justify-center items-center ml-4 mt-2 cursor-pointer"
-                  onClick={openModal}
-                />
+                <IoTicket className="text-5xl flex justify-center items-center ml-4 mt-2" />
 
                 {isOpen && (
                   <Transition.Root show={isOpen} as={Fragment}>
@@ -196,7 +212,7 @@ const ArtistProfile = () => {
                   </Transition.Root>
                 )}
               </div>
-              <div className="flex flex-col mr-3">
+              <div className="flex flex-col ">
                 <div className="font-semibold bg-gradient-to-r from-blue-400 via-pink-500 text-transparent bg-clip-text">
                   Membership:
                 </div>
@@ -415,14 +431,14 @@ const ArtistProfile = () => {
         <div className="text-xl font-semibold mt-5">All Singles</div>
 
         <div>
-          {options.map((option) => (
+          {options.map((option, index) => (
             <label
               key={option.id}
-              className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] cursor-pointer mb-4 rounded-lg"
+              className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13]  mb-4 rounded-lg"
             >
               <div className="flex items-center">
                 <div
-                  className="mr-4"
+                  className="mr-4 cursor-pointer"
                   onClick={() => handleCheckboxChange(option.id)}
                 >
                   {checkedItems.includes(option.id) ? (
@@ -438,12 +454,12 @@ const ArtistProfile = () => {
                   height={50}
                   className="w-12 h-12 object-cover rounded-md"
                 />
-                <div className="ml-4">
+                <div className="ml-4 cursor-pointer" onClick={() => {
+                      router.push(`/artists/${artistNumber}/${option.title}`);
+                    }}>
                   <p
                     className="text-lg font-semibold"
-                    onClick={() => {
-                      router.push(`/artists/${artistNumber}/${option.title}`);
-                    }}
+                    
                   >
                     {option.title}
                   </p>
@@ -452,42 +468,63 @@ const ArtistProfile = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <div className="flex items-center mx-3 md:mx-36">
-                  <span className="text-white flex justify-center items-center">
-                    <BsClock />
+                {/* <div className=""> */}
+                  <span className="text-white flex justify-between items-center mx-3 md:mx-36 ">
+                    <BsClock className="mx-2"/>
                     {option.time}
                   </span>
-                </div>
+                {/* </div> */}
                 <div className="flex items-center">
-                  <TiMediaPlay className="w-6 h-6 text-white" />
-                  <TiDownload className="w-6 h-6 text-white ml-4" />
+                  
+                    
+
+                  {/* <TiMediaPlay className="w-6 h-6 text-white" /> */}
+
+                  <div>
+                {isPlaying[index] ? (
+                  <TiMediaPause
+                    className="w-6 h-6 text-white cursor-pointer"
+                    onClick={() => handlePlayPause(index)}
+                  />
+                ) : (
+                  <TiMediaPlay
+                    className="w-6 h-6 text-white cursor-pointer"
+                    onClick={() => handlePlayPause(index)}
+                  />
+                )}
+              </div>
+                  
+                  
+                  
+                  <TiDownload className="w-6 h-6 text-white ml-4 cursor-pointer" />
                 </div>
               </div>
             </label>
           ))}
         </div>
         {checkedItems.length > 0 && (
-        <div className="md:flex md:justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
-          <div className="flex justify-center items-center md:flex-none">
-            
+          <div className="md:flex md:justify-between border-2 pt-4 pb-4 pl-8 pr-8 items-center rounded-3xl text-lg">
+            <div className="flex justify-center items-center md:flex-none">
               <div>Selected: {checkedItems.length}</div>
-          </div>
-          <div className="md:flex md:justify-evenly md:space-x-16 items-center font-bold">
-            <div className="flex justify-around md:space-x-16 mt-3 md:mt-0">
-              <button
-                onClick={() =>
-                  setCheckedItems(options.map((option) => option.id))
-                }
-              >
-                Select All
-              </button>
-              <button onClick={() => setCheckedItems([])}>Unselect All</button>
             </div>
-            <div className="flex justify-center items-center md:pl-16 md:pr-16 pt-4 pb-4 mt-5 md:mt-0 w-[fit] bg-gradient-to-r from-blue-700 from-10% to-red-500 rounded-full font-semi">
-              Download
+            <div className="md:flex md:justify-evenly md:space-x-16 items-center font-bold">
+              <div className="flex justify-around md:space-x-16 mt-3 md:mt-0">
+                <button
+                  onClick={() =>
+                    setCheckedItems(options.map((option) => option.id))
+                  }
+                >
+                  Select All
+                </button>
+                <button onClick={() => setCheckedItems([])}>
+                  Unselect All
+                </button>
+              </div>
+              <div className="flex justify-center items-center md:pl-16 md:pr-16 pt-4 pb-4 mt-5 md:mt-0 w-[fit] bg-gradient-to-r from-blue-700 from-10% to-red-500 rounded-full font-semi">
+                Download
+              </div>
             </div>
           </div>
-        </div>
         )}
       </div>
     </>

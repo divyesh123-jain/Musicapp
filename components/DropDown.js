@@ -21,7 +21,7 @@ const DropDown = () => {
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg border backdrop-opacity-25 bg-white/10 border-white/40 p-2">
-            <span className="block truncate">{selected.name}</span>
+            <span className="block trun cate">{selected.name}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <BsChevronDown
                 className="h-5 w-5 text-gray-400"
@@ -35,7 +35,7 @@ const DropDown = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-black/80 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-black py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10">
               {people.map((person, personIdx) => (
                 <Listbox.Option
                   key={personIdx}

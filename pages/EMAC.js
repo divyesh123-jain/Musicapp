@@ -1,7 +1,21 @@
 import Image from "next/image";
-import React from "react";
+import EMACpop from "../components/EMACpop";
+import React, { useState } from "react";
+import { Fragment } from "react";
+import { Transition, Dialog } from "@headlessui/react";
 
 const EMAC = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
@@ -23,9 +37,46 @@ const EMAC = () => {
             <div className="w-2/6">Track</div>
             <div className="w-1/6">TSS</div>
           </div>
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3">
-            <div className="w-1/6">1</div>
-            <div className="w-1/6 flex justify-center items-center space-x-2">
+          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3" onClick={openModal}>
+
+          <Transition.Root show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeModal}
+        >
+          <div className="flex items-center justify-center min-h-screen p-4">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div>
+                <EMACpop closeModal={closeModal} />
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+            <div className="w-1/12">1</div>
+            <div className="w-1/4 flex justify-center items-center space-x-2">
               <div>
                 <Image
                   src="/../public/imggg.png"
