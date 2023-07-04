@@ -6,7 +6,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { TbPhotoUp } from "react-icons/tb";
 import { MdDelete } from "react-icons/md";
 
-const blog = () => {
+const Blog = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [isImageUploaded, setIsImageUploaded] = useState(false);
@@ -159,4 +159,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;
