@@ -34,7 +34,7 @@ function Login() {
             <div className="flex justify-start text-lg text-gray-400">
               Enter your email address and password to access your account.
             </div>
-            <div className={`${styles["em-form"]} relative`}>
+            <form action={`router.push("/artists")`}  className={`${styles["em-form"]} relative`}>
               <div className={`${styles["em-form-group"]}`}>
                 <label htmlFor="email">Email address</label>
                 <div className={`${styles["em-input"]}`}>
@@ -60,6 +60,7 @@ function Login() {
                     className={`${styles["form-control"]} ${styles["em-hasicon"]}  w-[100%] flex justify-start border`}
                     id="password"
                     placeholder="Enter password"
+                    required
                   />
                   {/* <i
                     className={`fa-solid ${showPassword ? 'fa-eye-slash' : styles["em-eye"]}`}
@@ -82,9 +83,9 @@ function Login() {
               </div>
               <div>
                 {/* <button onClick={login} className={styles["em-sign-in-btn"]}> SIGN IN </button> */}
-                <div className="flex justify-center items-center pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full text-xl mt-6">
+                <button className="flex justify-center items-center pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full text-xl mt-6 w-[100%]" type="submit">
                   Sign In
-                </div>
+                </button>
               </div>
               <span className={styles["em-account-login"]}>
                 Don’t have an account?{" "}
@@ -93,7 +94,7 @@ function Login() {
                   Sign up <i className={styles["em-infinity"]}></i>{" "}
                 </Link>
               </span>
-            </div>
+            </form>
           </div>
         </div>
         <div className={styles["col-8"]}>
