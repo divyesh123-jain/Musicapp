@@ -48,7 +48,7 @@ function Login() {
             <div className="flex justify-start text-lg text-gray-400">
               Enter your email address and password to access your account.
             </div>
-            <form action={`router.push("/artists")`}  className={`${styles["em-form"]} relative`}>
+            <div className={`${styles["em-form"]} relative`}>
               <div className={`${styles["em-form-group"]}`}>
                 <label htmlFor="email">Email address</label>
                 <div className={`${styles["em-input"]}`}>
@@ -73,7 +73,6 @@ function Login() {
                     className={`${styles["form-control"]} ${styles["em-hasicon"]}  w-[100%] flex justify-start border`}
                     id="password"
                     placeholder="Enter password"
-                    required
                   />
                   {!showPassword ? (
                     <i onClick={() => setShowPassword(!showPassword)}>
@@ -104,7 +103,7 @@ function Login() {
                   Sign up <i className={styles["em-infinity"]}></i>{" "}
                 </Link>
               </span>
-            </form>
+            </div>
           </div>
         </div>
         <div className={styles["col-8"]}>
