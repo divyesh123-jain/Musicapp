@@ -45,6 +45,7 @@ function Login() {
                     className={`${styles["form-control"]} w-[100%] flex justify-start border`}
                     id="email"
                     placeholder="Enter email address"
+                    required
                   />
                 </div>
                 {/* { errors.email ? <ErrorMessage message={errors.email}/> : ''} */}
