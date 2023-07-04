@@ -5,7 +5,7 @@ import DropDown from "./DropDown";
 const EMACpop = ({ closeModal }) => {
   return (
     <div>
-      <div className="w-[500px] bg-black rounded-3xl p-7">
+      <div className=" w-[70%] md:w-[500px] bg-black rounded-3xl p-7">
         <div className="font-semibold text-white/90">Edit EMAC Item:</div>
         <div className="text-red-400 font-bold">Ranking 1</div>
         <div className="mt-2 text-gray-400 relative font-semibold">

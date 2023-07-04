@@ -3,7 +3,7 @@ import React from "react";
 const EditMemberCard = () => {
   return (
     <div>
-      <div className="w-[510px] h-[360px] bg-black/50 p-[20px] rounded-3xl relative">
+      <div className="w-[200px] h-[150px] md:w-[510px] md:h-[360px] bg-black/50 md:p-[20px] rounded-3xl relative">
         <div className="font-semibold">Edit Marketing Campaign Service:</div>
           <div className="w-full pt-1">
             <div className="mt-7">

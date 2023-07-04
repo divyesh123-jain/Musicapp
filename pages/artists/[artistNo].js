@@ -86,7 +86,7 @@ const ArtistProfile = () => {
   return (
     <>
       <div
-        className={`${styles["em-db-content"]} md:ml-[270px] min-h-[100vh] text-white p-5 md:w-[85vw]`}
+        className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5 md:w-[85vw]"
       >
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
@@ -154,7 +154,7 @@ const ArtistProfile = () => {
                           leaveTo="opacity-0 scale-95"
                         >
                           <div>
-                            <div className="w-[500px] bg-black rounded-3xl p-7">
+                            <div className="w-[70vw] md:w-[500px] bg-black rounded-3xl p-7">
                               <div className="font-semibold text-white/90">
                                 Edit Membership:
                               </div>

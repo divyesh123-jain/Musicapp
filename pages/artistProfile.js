@@ -47,7 +47,7 @@ const ArtistProfile = () => {
   return (
     <>
       <div
-        className={`${styles["em-db-content"]} md:ml-[270px] min-h-[100vh] text-white p-5`}
+        className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5"
       >
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}

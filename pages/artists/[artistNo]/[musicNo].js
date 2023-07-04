@@ -12,7 +12,7 @@ const MusicDetails = () => {
   const musicNumber = router.query.musicNo;
   return (
     <>
-      <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
+      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div className="align-items-center justify-content-between flex text-white">
           <BsArrowLeftCircle
             className="text-[30px] flex justify-center items-center cursor-pointer"
