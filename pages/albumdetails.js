@@ -15,9 +15,12 @@ const AlbumDetails = () => {
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
-          <BsArrowLeftCircle onClick={() => {
-            router.push("/artists/name")
-          }} className={`${styles["em-db-content-title-icon"]} cursor-pointer`} />
+          <BsArrowLeftCircle
+            onClick={() => {
+              router.push("/artists/name");
+            }}
+            className={`${styles["em-db-content-title-icon"]} cursor-pointer`}
+          />
           <h2>I Don&apos;t Think That I Like Her</h2>
         </div>
         <div
