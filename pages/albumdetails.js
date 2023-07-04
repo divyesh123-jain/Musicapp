@@ -4,15 +4,20 @@ import styles from "../sass/_em-artistProfile.module.scss";
 import { BsClock } from "react-icons/bs";
 import { TiMediaPlay } from "react-icons/ti";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const AlbumDetails = () => {
+  const router = useRouter();
+
   return (
     <>
       <div className="mt-8 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
-          <BsArrowLeftCircle className={styles["em-db-content-title-icon"]} />
+          <BsArrowLeftCircle onClick={() => {
+            router.push("/artists/name")
+          }} className={`${styles["em-db-content-title-icon"]} cursor-pointer`} />
           <h2>I Don&apos;t Think That I Like Her</h2>
         </div>
         <div
@@ -21,8 +26,8 @@ const AlbumDetails = () => {
         <div className="grid lg:grid-cols-2 grid-cols-1 p-3  space-x-2">
           <div className="grid1">
             <img
-              className="w-[363px] left-[46px] h-[366px] rounded-2xl"
-              src="https://via.placeholder.com/363x366"
+              className="w-[336px] left-[46px] h-[336px] rounded-2xl"
+              src="https://via.placeholder.com/336x336"
             />
           </div>
 
