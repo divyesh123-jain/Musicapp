@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "../sass/_em-login.module.scss";
 import { BsEyeFill } from "react-icons/bs";
@@ -11,6 +12,7 @@ function Login() {
   });
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -19,6 +21,18 @@ function Login() {
       ...credential,
       [evt.target.name]: value,
     });
+  };
+
+  const handleLogin = () => {
+    if (credential.email === "" || credential.password === "") {
+      // Display error message for empty email or password
+      setErrors(["Please fill in all the fields"]);
+    } else {
+      // Perform login logic
+      // Example: Send login request to server, handle success and error cases
+      // If login is successful, navigate to the main page
+      router.push("/artists"); // Replace "/main" with the actual path to your main page
+    }
   };
 
   return (
@@ -48,7 +62,6 @@ function Login() {
                     required
                   />
                 </div>
-                {/* { errors.email ? <ErrorMessage message={errors.email}/> : ''} */}
               </div>
               <div className={styles["em-form-group"]}>
                 <label htmlFor="password">password</label>
@@ -62,10 +75,6 @@ function Login() {
                     placeholder="Enter password"
                     required
                   />
-                  {/* <i
-                    className={`fa-solid ${showPassword ? 'fa-eye-slash' : styles["em-eye"]}`}
-                    onClick={() => setShowPassword(!showPassword)}
-                  ></i> */}
                   {!showPassword ? (
                     <i onClick={() => setShowPassword(!showPassword)}>
                       {" "}
@@ -78,13 +87,14 @@ function Login() {
                     </i>
                   )}
                 </div>
-                {/* { errors.password ? <ErrorMessage message={errors.password}/> : ''} */}
                 <Link href="/forget-password">Forgot Password?</Link>
               </div>
+              {errors.length > 0 && (
+                <div className="text-red-500">{errors[0]}</div>
+              )}
               <div>
-                {/* <button onClick={login} className={styles["em-sign-in-btn"]}> SIGN IN </button> */}
-                <button className="flex justify-center items-center pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full text-xl mt-6 w-[100%]" type="submit">
-                  Sign In
+                <button onClick={handleLogin} className={styles["em-sign-in-btn"]}>
+                  SIGN IN
                 </button>
               </div>
               <span className={styles["em-account-login"]}>
