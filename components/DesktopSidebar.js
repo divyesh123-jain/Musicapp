@@ -39,9 +39,9 @@ const DesktopSidebar = () => {
 
         <ul className={styles['nav-list']}>
              <li>
-               <Link href="/artistProfile">
+               <Link href="/artists">
                  <i className="bx bx-grid-alt"></i>
-                 <span className={styles['links_name']}>Dashboard</span>
+                 <span className={styles['links_name']}>Artists</span>
                </Link>
              </li>
              <li>
@@ -50,18 +50,18 @@ const DesktopSidebar = () => {
                  <span className={`${styles['links_name']} `}>Emac</span>
                </Link>
              </li>
-             <li>
+             {/* <li>
                <Link href="/artists">
                  <i className="bx bx-music"></i>
                  <span className={styles['links_name']}>Artist</span>
                </Link>
-             </li>
-             <li>
+             </li> */}
+             {/* <li>
                <Link href="/MusicDetails">
                  <i className="bx bx-album"></i>
                  <span className={styles['links_name']}>MusicDetails</span>
                </Link>
-             </li>
+             </li> */}
              <li>
                <Link href="/Subscription">
                  <i className="bx bx-crown"></i>
@@ -75,7 +75,7 @@ const DesktopSidebar = () => {
                </Link>
              </li>
              <li>
-               <Link href={''} type="button">
+               <Link href="/login" type="button">
                  <i className="bx bx-log-in"></i>
                  <span className={styles['links_name']}>Log Out</span>
                </Link>
@@ -83,7 +83,7 @@ const DesktopSidebar = () => {
              <li className={`${styles['profile']}`}>
                <div className={`${styles['profile-details']} logout-sec`}>
                  <div className={`${styles['links_name']} p-2`}>
-                   <p className="text-wrap small">Hemlo</p>
+                   <p className="text-wrap small">JohnDOe</p>
                  </div>
                </div>
              </li>
