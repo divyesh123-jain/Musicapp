@@ -102,7 +102,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="md:flex mt-10">
+        <div className=" md:flex mt-10">
           {/* blog title and subject */}
           <div>
             <div>
@@ -135,9 +135,9 @@ const Blog = () => {
               </div>
             </div>
           </div>
-
+        
           <div className="m-3 relative w-[400px] h-[250px] ">
-            <div className="overflow-hidden w-[300px] h-auto rounded-[13px]">
+            <div className="overflow-hidden w-[full] h-auto rounded-[13px]">
               {previewImage ? (
                 <img
                   src={previewImage}
@@ -147,14 +147,14 @@ const Blog = () => {
               ) : (
                 <img
                   src="/../public/albumCover.jpg"
-                  alt="Default Artwork"
+                  alt="Default Image"
                   className="rounded-[13px]"
                 />
               )}
             </div>
             {isImageUploaded && (
               <button
-                className="absolute w-[40px] h-[40px] top-0 right-0 mt-[12px] mr-[18px] bg-gray-500 backdrop-blur-sm text-gray-900 hover:text-red-500 rounded-[13px]"
+                className="absolute w-[30px] h-[auto] top-0 right-0 mt-[12px] mr-[18px] bg-gray-500 backdrop-blur-sm text-gray-900 hover:text-red-500 rounded-lg"
                 onClick={deleteImage}
               >
                 <MdDelete className="text-3xl" />
@@ -166,7 +166,7 @@ const Blog = () => {
         <div className="flex flex-col">
           <div>Blog Description</div>
           <div className="mt-3">
-            <div className="relative flex items-center w-[75vw] h-[35vh] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
+            <div className="relative flex items-center w-full[75vw] h-[35vh] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
               <textarea
                 className="peer h-full w-full outline-none text-xl p-2 backdrop-opacity-25 bg-white/5 border-white/40 pr-2 resize-none"
                 id="description"

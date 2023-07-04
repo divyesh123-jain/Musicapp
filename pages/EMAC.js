@@ -18,7 +18,7 @@ const EMAC = () => {
 
   return (
     <>
-      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
+      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5 text-sm">
         <div>
           <div className="text-2xl md:text-3xl text-white font-bold">
             <span className="text-red-400 to">Emergence Music Ambassadors</span> Clubs Standings
