@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import DesktopSidebar from '@/components/DesktopSidebar'
 import ArtistProfile from './artistProfile'
-
 import Artists from './artists'
 import Login from './login'
 
@@ -13,7 +12,6 @@ export default function Home() {
  <>
 
 <Login />
- 
 
  </>
   )
