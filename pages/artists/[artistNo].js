@@ -85,9 +85,7 @@ const ArtistProfile = () => {
 
   return (
     <>
-      <div
-        className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5 md:w-[85vw]"
-      >
+      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5 md:w-[85vw]">
         <div
           className={`${styles["em-db-content-title"]} d-flex align-items-center justify-content-between`}
         >
@@ -414,10 +412,11 @@ const ArtistProfile = () => {
         <div className="text-xl font-semibold mt-10">Albums</div>
 
         <div className="mt-4 flex">
-          <div className="flex flex-col w-[fit] hover:bg-white/5 p-3 rounded-xl cursor-pointer"
-          onClick={() => {
-                      router.push(`/albumdetails`);
-                    }}
+          <div
+            className="flex flex-col w-[fit] hover:bg-white/5 p-3 rounded-xl cursor-pointer"
+            onClick={() => {
+              router.push(`/albumdetails`);
+            }}
           >
             <Image
               src="/../public/albumCover.jpg"
@@ -458,48 +457,41 @@ const ArtistProfile = () => {
                   height={50}
                   className="w-12 h-12 object-cover rounded-md"
                 />
-                <div className="ml-4 cursor-pointer" onClick={() => {
-                      router.push(`/artists/${artistNumber}/${option.title}`);
-                    }}>
-                  <p
-                    className="text-lg font-semibold"
-                    
-                  >
-                    {option.title}
-                  </p>
+                <div
+                  className="ml-4 cursor-pointer"
+                  onClick={() => {
+                    router.push(`/artists/${artistNumber}/${option.title}`);
+                  }}
+                >
+                  <p className="text-lg font-semibold">{option.title}</p>
 
                   <p className="text-sm text-gray-400">{option.writer}</p>
                 </div>
               </div>
               <div className="flex justify-between">
                 {/* <div className=""> */}
-                  <span className="text-white flex justify-between items-center mx-3 md:mx-36 ">
-                    <BsClock className="mx-2"/>
-                    {option.time}
-                  </span>
+                <span className="text-white flex justify-between items-center mx-3 md:mx-36 ">
+                  <BsClock className="mx-2" />
+                  {option.time}
+                </span>
                 {/* </div> */}
                 <div className="flex items-center">
-                  
-                    
-
                   {/* <TiMediaPlay className="w-6 h-6 text-white" /> */}
 
                   <div>
-                {isPlaying[index] ? (
-                  <TiMediaPause
-                    className="w-6 h-6 text-white cursor-pointer"
-                    onClick={() => handlePlayPause(index)}
-                  />
-                ) : (
-                  <TiMediaPlay
-                    className="w-6 h-6 text-white cursor-pointer"
-                    onClick={() => handlePlayPause(index)}
-                  />
-                )}
-              </div>
-                  
-                  
-                  
+                    {isPlaying[index] ? (
+                      <TiMediaPause
+                        className="w-6 h-6 text-white cursor-pointer"
+                        onClick={() => handlePlayPause(index)}
+                      />
+                    ) : (
+                      <TiMediaPlay
+                        className="w-6 h-6 text-white cursor-pointer"
+                        onClick={() => handlePlayPause(index)}
+                      />
+                    )}
+                  </div>
+
                   <TiDownload className="w-6 h-6 text-white ml-4 cursor-pointer" />
                 </div>
               </div>
