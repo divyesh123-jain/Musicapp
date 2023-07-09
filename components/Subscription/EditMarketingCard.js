@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 
 const EditMarketingCard = forwardRef(({ closeModal }, ref) => {
+
+  EditMarketingCard.displayName = "EditMarketingCard";
   return (
     <div ref={ref} className="w-[90vw] md:w-[500px] bg-black p-7 rounded-3xl relative">
       <div className="font-semibold text-white">Edit Marketing Campaign Service:</div>
