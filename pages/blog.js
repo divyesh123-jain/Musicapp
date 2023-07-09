@@ -146,7 +146,7 @@ const Blog = () => {
                 />
               ) : (
                 <img
-                  src="/../public/albumCover.jpg"
+                  src="https://via.placeholder.com/400x250"
                   alt="Default Image"
                   className="rounded-[13px]"
                 />
