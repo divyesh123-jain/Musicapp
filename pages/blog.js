@@ -65,10 +65,10 @@ const Blog = () => {
   };
 
   return (
-    <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
+    <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
       <div className="align-items-center justify-content-between flex text-white">
         {/* <BsArrowLeftCircle className="text-[30px] flex justify-center items-center" /> */}
-        <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
+        <h2 className="text-white md:ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
           New Blog
         </h2>
       </div>
@@ -136,7 +136,7 @@ const Blog = () => {
             </div>
           </div>
         
-          <div className="m-3 relative w-[400px] h-[250px] ">
+          <div className=" m-3 relative w-[320px] md:w-[400px] h-[250px] ">
             <div className="overflow-hidden w-[full] h-auto rounded-[13px]">
               {previewImage ? (
                 <img
@@ -163,7 +163,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col md:pr-3">
           <div>Blog Description</div>
           <div className="mt-3">
             <div className="relative flex items-center w-full[75vw] h-[35vh] border backdrop-opacity-25 bg-white/10 border-white/40  rounded-lg focus-within:shadow-lg overflow-hidden">
@@ -177,7 +177,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div className="flex justify-end space-x-10 items-center mt-10">
+        <div className="flex justify-end space-x-10 items-center mt-10 md:mr-3">
           <button className="text-gray-200" onClick={handleReset}>
             Reset
           </button>

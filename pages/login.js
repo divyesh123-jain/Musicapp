@@ -41,9 +41,9 @@ function Login() {
         <div className={styles["col-4"]}>
           <div className={styles["em-signup"]}>
             <h3
-              className={`${styles["em-welcome"]} text-3xl flex justify-center items-center`}
+              className={`${styles["em-welcome"]} text-3xl flex justify-start items-center`}
             >
-              Welcome to Emergence <i className={styles["em-eyeglass"]}></i>
+              Admin Panel Login <i className={styles["em-eyeglass"]}></i>
             </h3>
             <div className="flex justify-start text-lg text-gray-400">
               Enter your email address and password to access your account.
@@ -56,7 +56,7 @@ function Login() {
                     onChange={handleChange}
                     name="email"
                     type="email"
-                    className={`${styles["form-control"]} w-[100%] flex justify-start border`}
+                    className={`${styles["form-control"]} w-[100%] flex justify-start border mt-1`}
                     id="email"
                     placeholder="Enter email address"
                     required
@@ -64,13 +64,13 @@ function Login() {
                 </div>
               </div>
               <div className={styles["em-form-group"]}>
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">Password</label>
                 <div className={styles["em-input"]}>
                   <input
                     onChange={handleChange}
                     name="password"
                     type={showPassword ? "text" : "password"}
-                    className={`${styles["form-control"]} ${styles["em-hasicon"]}  w-[100%] flex justify-start border`}
+                    className={`${styles["form-control"]} ${styles["em-hasicon"]}  w-[100%] flex justify-start border mt-1`}
                     id="password"
                     placeholder="Enter password"
                   />
@@ -86,23 +86,23 @@ function Login() {
                     </i>
                   )}
                 </div>
-                <Link href="/forget-password">Forgot Password?</Link>
+                {/* <Link href="/forget-password">Forgot Password?</Link> */}
               </div>
               {errors.length > 0 && (
                 <div className="text-red-500">{errors[0]}</div>
               )}
               <div>
                 <button onClick={handleLogin} className={styles["em-sign-in-btn"]}>
-                  SIGN IN
+                  Log In
                 </button>
               </div>
-              <span className={styles["em-account-login"]}>
+              {/* <span className={styles["em-account-login"]}>
                 Don’t have an account?{" "}
                 <Link href="/signup" className={styles["em-Sign-up-btn"]}>
                   {" "}
                   Sign up <i className={styles["em-infinity"]}></i>{" "}
                 </Link>
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

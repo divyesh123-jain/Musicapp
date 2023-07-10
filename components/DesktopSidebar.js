@@ -4,6 +4,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { TbCrown, TbLogout } from "react-icons/tb";
+import { SlEarphones } from "react-icons/sl";
 
 const DesktopSidebar = () => {
   const router = useRouter();
@@ -20,7 +22,7 @@ const DesktopSidebar = () => {
     <>
       <button
         type="button"
-        className="fixed top-0 left-0 backdrop-blur-sm z-50 p-2 mt-1 ml-3 text-sm text-white rounded-lg sm:hidden "
+        className="fixed top-0 right-0 backdrop-blur-sm z-50 p-2 mt-1 mr-3 text-sm text-white rounded-lg sm:hidden "
         onClick={toggleSidebar}
       >
         {icon}
@@ -39,14 +41,15 @@ const DesktopSidebar = () => {
 
         <ul className={styles['nav-list']}>
              <li>
-               <Link href="/artists">
-                 <i className="bx bx-grid-alt"></i>
+               <Link href="/artists" className="flex justify-start items-center">
+               <i className="bx bx-crown flex justify-center items-center"><SlEarphones className="text-white space-x-2 text-2xl" /></i>
                  <span className={styles['links_name']}>Artists</span>
                </Link>
              </li>
              <li>
-               <Link href="/EMAC">
-                 <i className="bx bx-cloud-upload"></i>
+               <Link href="/EMAC" className="flex justify-start items-center">
+               <i className="bx bx-crown flex justify-center items-center"><SlEarphones className="text-white space-x-2 text-2xl" /></i>
+                 
                  <span className={`${styles['links_name']} `}>Emac</span>
                </Link>
              </li>
@@ -63,20 +66,20 @@ const DesktopSidebar = () => {
                </Link>
              </li> */}
              <li>
-               <Link href="/Subscription">
-                 <i className="bx bx-crown"></i>
+               <Link href="/Subscription" className="flex justify-start items-center">
+                 <i className="bx bx-crown flex justify-center items-center"><TbCrown className="text-white space-x-2 text-2xl" /></i>
                  <span className={styles['links_name']}>Subscription</span>
                </Link>
              </li>
              <li>
-               <Link href="/blog">
-                 <i className="bx bx-cog"></i>
+               <Link href="/blog" className="flex justify-start items-center"> 
+               <i className="bx bx-crown flex justify-center items-center"><TbCrown className="text-white space-x-2 text-2xl" /></i>
                  <span className={styles['links_name']}>Blogs</span>
                </Link>
              </li>
-             <li>
-               <Link href="/login" type="button">
-                 <i className="bx bx-log-in"></i>
+             <li className="">
+               <Link href="/login" type="button" className="flex justify-start items-center">
+               <i className="bx bx-crown flex justify-center items-center"><TbLogout className="text-white space-x-2 text-2xl" /></i>
                  <span className={styles['links_name']}>Log Out</span>
                </Link>
              </li>

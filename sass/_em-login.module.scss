@@ -93,7 +93,8 @@
     font-family: "SfPro" !important;
     white-space: nowrap;
     padding: 1rem !important;
-    background: #6e6e6e;
+    background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
+    // background: #6e6e6e;
     border-radius: 80px;
     border: none;
     display: flex;
@@ -103,14 +104,14 @@
     color: #ffffff;
     width: -webkit-fill-available;
     text-decoration: none;
-    &:hover {
-      background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
-      color: #ffffff;
-    }
-    &.active {
-      background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
-      color: #ffffff;
-    }
+    // &:hover {
+    //   background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
+    //   color: #ffffff;
+    // }
+    // &.active {
+    //   background: linear-gradient(102.9deg, #4857c0 3.03%, #fe465a 92.77%);
+    //   color: #ffffff;
+    // }
   }
   .em-Sign-up-btn {
     font-family: "SfPro" !important;
