@@ -22,6 +22,7 @@ import SubscriptionDetails from "@/components/Artists/ArtistsProfile/Subscriptio
 import AddOnSection from "@/components/Artists/ArtistsProfile/AddOnSection";
 import AlbumDetails from "@/components/Artists/ArtistsProfile/AlbumDetails";
 import AllSinglesSection from "@/components/Artists/ArtistsProfile/AllSinglesSection";
+import MusicStats from "@/components/Artists/ArtistsProfile/MusicStats";
 
 const ArtistProfile = () => {
   const router = useRouter();
@@ -176,47 +177,20 @@ const ArtistProfile = () => {
             <div></div>
           </div>
           <div className="col-lg-5 mt-10 p-3 h-[100vh] md:h-auto">
-            <ul
-              className={`${styles["em-db-music"]} row gap-3 grid grid-cols-2`}
-            >
-              <li className="col m-0">
-                <BsMusicNote className="img-fluid" />
-                <span>Music</span>
-                <em>567</em>
-                {/* <em>{dashboardInfo?.totalMusic}</em> */}
-              </li>
-              <li className="col m-0">
-                <BsMusicNote className="img-fluid" />
-                <span>EP / Albums</span>
-                <em>30</em>
-                {/* <em>{dashboardInfo?.albums?.total}</em> */}
-              </li>
-              <li className="col m-0">
-                <BsMusicNote className="img-fluid" />
-                <span>Upcoming Music</span>
-                <em>16</em>
-                {/* <em>{dashboardInfo?.totalUpcomingMusic}</em> */}
-              </li>
-              <li className="col m-0">
-                <BsMusicNote className="img-fluid" />
-                <span>Published Music</span>
-                <em>760</em>
-                {/* <em>{dashboardInfo?.totalPublishedMusic}</em> */}
-              </li>
-            </ul>
+            <MusicStats />
           </div>
 
 
-          <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0`}>
+          <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0 `}>
             <div className="flex justify-between text-xl font-bold">
               <div>Subscription</div>
-              <div>View All</div>
+              <div className="">View All</div>
             </div>
             <SubscriptionDetails subscriptionData={subscriptionData} />
           </div>
         </div>
 
-        <div className="md:mt-10 ">
+        <div className="md:mt-10 p-3  ">
           <div className="flex justify-between font-semibold text-xl">
             <div>Active Add Ons</div>
             <div>View All</div>
