@@ -5,7 +5,7 @@ import { BsClock } from "react-icons/bs";
 
 const SongPlayer = ({ albumCover, trackTitle, artist, duration }) => {
   return (
-    <div className="relative">
+    <div className="relative h-[88px] ">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       <label className="flex justify-between items-center p-2 border-b border-gray-200 last:border-b-0 relative z-10">
         <div className="flex items-center space-x-6">

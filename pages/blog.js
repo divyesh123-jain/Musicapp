@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { TbPhotoUp } from "react-icons/tb";
 import { MdDelete } from "react-icons/md";
+import Image from "next/image";
 
 const Blog = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -136,19 +137,21 @@ const Blog = () => {
             </div>
           </div>
         
-          <div className=" m-3 relative w-[320px] md:w-[400px] h-[250px] ">
+          <div className=" m-3 relative w-[320px] md:w-[400px] h-[250px] overflow-hidden">
             <div className="overflow-hidden w-[full] h-auto rounded-[13px]">
               {previewImage ? (
-                <img
+                <Image
                   src={previewImage}
                   alt="Uploaded Artwork"
                   className="rounded-[13px]"
+                  layout='fill' objectFit='cover'
                 />
               ) : (
                 <img
                   src="https://via.placeholder.com/400x250"
                   alt="Default Image"
                   className="rounded-[13px]"
+                  layout='fill' objectFit='cover'
                 />
               )}
             </div>

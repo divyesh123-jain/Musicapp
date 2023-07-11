@@ -17,12 +17,13 @@ const Artists = () => {
         </div>
 
         <SearchBar />
-
-        <div
-          className="sm:mb-0 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center lg:grid-cols-4"
-        >
-          <ArtistCard name="Ari Elkins" profileImage="https://via.placeholder.com/112x112" />
-          
+        <div className="flex justify-center items-center">
+          <div className="sm:mb-0 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center lg:grid-cols-4">
+            <ArtistCard
+              name="Ari Elkins"
+              profileImage="https://via.placeholder.com/112x112"
+            />
+          </div>
         </div>
       </div>
     </>

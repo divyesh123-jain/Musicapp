@@ -10,13 +10,20 @@ import { SlEarphones } from "react-icons/sl";
 const DesktopSidebar = () => {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [icon, setIcon] = useState(<AiOutlineMenu className="text-2xl text-white " />);
+  const [icon, setIcon] = useState(
+    <AiOutlineMenu className="text-2xl text-white " />
+  );
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    setIcon(isSidebarOpen ? <AiOutlineMenu className="text-2xl text-whitebg-black" /> : <AiOutlineClose className="text-2xl text-white " />);
+    setIcon(
+      isSidebarOpen ? (
+        <AiOutlineMenu className="text-2xl text-whitebg-black" />
+      ) : (
+        <AiOutlineClose className="text-2xl text-white " />
+      )
+    );
   };
-
 
   return (
     <>
@@ -29,70 +36,96 @@ const DesktopSidebar = () => {
       </button>
 
       <div className={`${styles.sidebar}`}>
+        <aside
+          id="sidebar-multi-level-sidebar"
+          className={`fixed top-0 left-0 z-40 w-64 h-full transition-transform  ${
+            isSidebarOpen ? "" : "-translate-x-full sm:translate-x-0"
+          }`}
+          aria-label="Sidebar"
+        >
+          <div className="h-full px-3 py-4  text-gray-800 bg-[#201a2c] hover:bg-[#201a2c] border-[#35235a] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group overflow-y-hidden">
+            <div
+              className="cursor-pointer text-white flex justify-center items-center"
+              onClick={() => {
+                router.push("/");
+              }}
+            >
+              LOGO HERE
+            </div>
+            <ul className={styles["nav-list"]}>
+              <li>
+                <Link
+                  href="/artists"
+                  className="flex justify-start items-center"
+                >
+                  <i className="bx bx-crown flex justify-center items-center">
+                    <SlEarphones className="text-white space-x-2 text-2xl" />
+                  </i>
+                  <span className={styles["links_name"]}>Artists</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/EMAC" className="flex justify-start items-center">
+                  <i className="bx bx-crown flex justify-center items-center">
+                    <SlEarphones className="text-white space-x-2 text-2xl" />
+                  </i>
 
-      <aside
-        id="sidebar-multi-level-sidebar"
-        className={`fixed top-0 left-0 z-40 w-64 h-full transition-transform  ${
-          isSidebarOpen ? "" : "-translate-x-full sm:translate-x-0"
-        }`}
-        aria-label="Sidebar"
-      >
-        <div className="h-full px-3 py-4  text-gray-800 bg-[#201a2c] hover:bg-[#201a2c] border-[#35235a] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group overflow-y-hidden">
-
-        <ul className={styles['nav-list']}>
-             <li>
-               <Link href="/artists" className="flex justify-start items-center">
-               <i className="bx bx-crown flex justify-center items-center"><SlEarphones className="text-white space-x-2 text-2xl" /></i>
-                 <span className={styles['links_name']}>Artists</span>
-               </Link>
-             </li>
-             <li>
-               <Link href="/EMAC" className="flex justify-start items-center">
-               <i className="bx bx-crown flex justify-center items-center"><SlEarphones className="text-white space-x-2 text-2xl" /></i>
-                 
-                 <span className={`${styles['links_name']} `}>Emac</span>
-               </Link>
-             </li>
-             {/* <li>
+                  <span className={`${styles["links_name"]} `}>Emac</span>
+                </Link>
+              </li>
+              {/* <li>
                <Link href="/artists">
                  <i className="bx bx-music"></i>
                  <span className={styles['links_name']}>Artist</span>
                </Link>
              </li> */}
-             {/* <li>
+              {/* <li>
                <Link href="/MusicDetails">
                  <i className="bx bx-album"></i>
                  <span className={styles['links_name']}>MusicDetails</span>
                </Link>
              </li> */}
-             <li>
-               <Link href="/Subscription" className="flex justify-start items-center">
-                 <i className="bx bx-crown flex justify-center items-center"><TbCrown className="text-white space-x-2 text-2xl" /></i>
-                 <span className={styles['links_name']}>Subscription</span>
-               </Link>
-             </li>
-             <li>
-               <Link href="/blog" className="flex justify-start items-center"> 
-               <i className="bx bx-crown flex justify-center items-center"><TbCrown className="text-white space-x-2 text-2xl" /></i>
-                 <span className={styles['links_name']}>Blogs</span>
-               </Link>
-             </li>
-             <li className="">
-               <Link href="/login" type="button" className="flex justify-start items-center">
-               <i className="bx bx-crown flex justify-center items-center"><TbLogout className="text-white space-x-2 text-2xl" /></i>
-                 <span className={styles['links_name']}>Log Out</span>
-               </Link>
-             </li>
-             <li className={`${styles['profile']}`}>
-               <div className={`${styles['profile-details']} logout-sec`}>
-                 <div className={`${styles['links_name']} p-2`}>
-                   <p className="text-wrap small">JohnDOe</p>
-                 </div>
-               </div>
-             </li>
-           </ul>
+              <li>
+                <Link
+                  href="/Subscription"
+                  className="flex justify-start items-center"
+                >
+                  <i className="bx bx-crown flex justify-center items-center">
+                    <TbCrown className="text-white space-x-2 text-2xl" />
+                  </i>
+                  <span className={styles["links_name"]}>Subscription</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="flex justify-start items-center">
+                  <i className="bx bx-crown flex justify-center items-center">
+                    <TbCrown className="text-white space-x-2 text-2xl" />
+                  </i>
+                  <span className={styles["links_name"]}>Blogs</span>
+                </Link>
+              </li>
+              <li className="">
+                <Link
+                  href="/login"
+                  type="button"
+                  className="flex justify-start items-center"
+                >
+                  <i className="bx bx-crown flex justify-center items-center">
+                    <TbLogout className="text-white space-x-2 text-2xl" />
+                  </i>
+                  <span className={styles["links_name"]}>Log Out</span>
+                </Link>
+              </li>
+              <li className={`${styles["profile"]}`}>
+                <div className={`${styles["profile-details"]} logout-sec`}>
+                  <div className={`${styles["links_name"]} p-2`}>
+                    <p className="text-wrap small">JohnDOe</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
 
-          {/* <ul className="space-y-2 font-medium mt-6"> */}
+            {/* <ul className="space-y-2 font-medium mt-6"> */}
             {/* <li>
               <a
                 href="#"
@@ -303,11 +336,10 @@ const DesktopSidebar = () => {
                 <span className="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
               </a>
             </li> */}
-          {/* </ul> */}
-        </div>
-      </aside>
+            {/* </ul> */}
+          </div>
+        </aside>
       </div>
-
     </>
   );
 };
