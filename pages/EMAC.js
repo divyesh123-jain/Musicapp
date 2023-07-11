@@ -19,7 +19,7 @@ const EMAC = () => {
   const items = [
     {
       ranking: "1",
-      artist: "Charlie Puth",
+      artist: "Charlie",
       country: "USA",
       genre: "POP",
       track: "We Don't Talk Anymore",
@@ -29,7 +29,7 @@ const EMAC = () => {
       ranking: "2",
       artist: "Adele",
       country: "UK",
-      genre: "Pop",
+      genre: "POP",
       track: "Someone Like You",
       tss: "98",
     },
@@ -49,13 +49,13 @@ const EMAC = () => {
         </div>
 
         <div className="mt-10">
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-[90vw] md:w-[76vw] p-3 mt-3 text-sm">
+          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-[87vw] md:w-[76vw] p-3 mt-3 text-[0.60rem] md:text-lg">
             <div className="w-1/6">Ranking</div>
-            <div className="w-1/6">Artist</div>
-            <div className="hidden md:block w-1/6">Country</div>
-            <div className="w-1/6">Genre</div>
-            <div className="w-2/6">Track</div>
-            <div className="w-1/6">TSS</div>
+            <div className="w-1/6 ml-1">Artist</div>
+            <div className="hidden md:block w-1/6 pl-2">Country</div>
+            <div className="w-1/6 pl-2">Genre</div>
+            <div className="w-2/6 pl-2">Track</div>
+            <div className="w-1/6 flex justify-start pl-2">TSS</div>
           </div>
           {items.map((item) => (
             <EMACItem
