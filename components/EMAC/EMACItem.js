@@ -4,7 +4,7 @@ import Image from "next/image";
 const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) => {
   return (
     <div
-      className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-full md:w-[76vw] text-lg p-3 mt-3"
+      className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/20 rounded-lg w-[89vw] md:w-[76vw] text-xs p-3 mt-3 "
       onClick={openModal}
     >
       <div className="w-1/12">{ranking}</div>
