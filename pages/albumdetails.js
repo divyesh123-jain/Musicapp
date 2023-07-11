@@ -34,7 +34,7 @@ const AlbumDetails = () => {
             />
           </div>
 
-          <div className="left-[46px] grid grid-cols-2 gap-4">
+          <div className="left-[46px] grid grid-cols-2 gap-4 mt-10 md:mt-0">
             <div className="flex-col justify-start items-start gap-2 flex">
               <div className="text-neutral-400 text-[16px] font-medium leading-tight">
                 Track Title
@@ -113,7 +113,7 @@ const AlbumDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between items-center space-x-1 mr-6">
+            <div className="flex justify-between items-center space-x-1 mr-3">
               <BsClock className="" />
               <span>10:00</span>
             </div>
