@@ -28,7 +28,7 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
                   rounded-lg
                 />
               </div>
-              <div className="  text-xs">AWB</div>
+              <div className="  text-xs">AWB <span className="hidden md:inline">| Artist With Benefit</span></div>
             </div>
         </div>
       </div>
