@@ -62,7 +62,9 @@ const Artists = ({ data }) => {
             {data.map((item) => (
               <ArtistCard
                 key={item.id}
-                name={item.full_name}
+                // name={item.full_name}
+                // username={item.username}
+                data={item}
                 profileImage="https://via.placeholder.com/112x112"
               />
             ))}
@@ -86,9 +88,9 @@ export async function getServerSideProps() {
     console.error("Error fetching data:", error);
     return {
       props: {
-        data: [],
+        data,
       },
-    };
+    };    
   }
 }
 

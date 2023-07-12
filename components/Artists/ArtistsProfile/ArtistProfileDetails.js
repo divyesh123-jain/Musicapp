@@ -3,7 +3,8 @@ import Image from "next/image";
 import { IoTicket } from "react-icons/io5";
 import EditMembershipCard from "./EditMembershipCard";
 
-const ArtistProfileDetails = ({ artistNumber }) => {
+const ArtistProfileDetails = ({ artistData  }) => {
+  // const { full_name } = artistData;
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -26,7 +27,8 @@ const ArtistProfileDetails = ({ artistNumber }) => {
         />
       </div>
       <div className="font-semibold text-2xl flex justify-center items-center mt-5 md:mt-0">
-        {artistNumber}
+      {/* {full_name} */}
+      name
       </div>
       <div
         className="flex justify-center space-x-4 mt-3 p-1 backdrop-opacity-25 bg-black/50 rounded-full text-gray-300 cursor-pointer"
