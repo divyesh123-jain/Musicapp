@@ -26,7 +26,7 @@ const EMACpop = ({ closeModal }) => {
           />
         </div>
         <div className="flex justify-end space-x-10 items-center mt-16">
-          <div className="text-white cursor-pointer" onClick={closeModal}>Cancel</div>
+        <div className="text-white cursor-pointer" onClick={closeModal}>Cancel</div>
           <div
             className="pl-10 pr-10 pt-2 pb-2 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full cursor-pointer"
             onClick={closeModal}

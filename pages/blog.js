@@ -195,7 +195,7 @@ const Blog = () => {
 
       {isPublished && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-lg">
-          <div className="bg-white p-10 rounded-lg">
+          <div className="text-white bg-black p-10 rounded-lg">
             <p>Your blog has been posted!</p>
           </div>
         </div>
