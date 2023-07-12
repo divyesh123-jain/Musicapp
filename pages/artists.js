@@ -29,7 +29,7 @@ const Artists = () => {
       <div className="md:ml-[270px] min-h-[100vh] text-white p-5">
         <div className="align-items-center justify-content-between flex text-white">
           <h2 className="text-white ml-[10px] mt-[52px] font-sf-pro-text text-4xl font-semibold tracking-normal text-left">
-            All Artists
+            All Artistss
           </h2>
         </div>
 
