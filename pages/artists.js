@@ -7,15 +7,14 @@ import axios from 'axios';
 
 const Artists = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
         const data = await response.json();
-        console.log(data)
         setData(data.data);
-        console.log(data.data)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -23,6 +22,13 @@ const Artists = () => {
 
     fetchData();
   }, []);
+
+  const handleSearch = (query) => {
+    const filtered = data.filter((item) =>
+      item.full_name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
 
   return (
     <>
@@ -33,10 +39,10 @@ const Artists = () => {
           </h2>
         </div>
 
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
         <div className="flex justify-center items-center">
           <div className="sm:mb-0 mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center lg:grid-cols-4 md:w-full md:space-x-2">
-            {data.map((item) => (
+            {(filteredData.length > 0 ? filteredData : data).map((item) => (
               <ArtistCard
                 key={item.id}
                 name={item.full_name}
