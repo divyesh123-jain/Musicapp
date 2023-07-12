@@ -109,7 +109,7 @@ export default Artists;
 
 //   const fetchAPI = () => {
 //     axios
-//       .get("https://api.child-hunger.org/api/artists")
+//       .get("link")
 //       .then((res) => {
 //         // console.log(res.data);
 //         setData(res.data.data);
