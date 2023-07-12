@@ -75,7 +75,7 @@ const Artists = ({ data }) => {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get("https://api.child-hunger.org/api/artists");
+    const response = await axios.get(process.env.API_URL);
     const data = response.data.data;
     return {
       props: {
