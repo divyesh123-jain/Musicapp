@@ -185,9 +185,7 @@ const ArtistProfile = ({ artistData: initialArtistData }) => {
 export async function getServerSideProps(context) {
   try {
     const { artistNo } = context.query;
-    const response = await axios.get(
-      "https://api.child-hunger.org/api/artists"
-    );
+    const response = await axios.get(process.env.NEXT_PUBLIC_ARTISTS);
     const artistsData = response.data.data;
     const artistData = artistsData.find(
       (artist) => artist.username === artistNo
