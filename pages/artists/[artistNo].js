@@ -19,7 +19,9 @@ const ArtistProfile = ({ artistData: initialArtistData }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://api.child-hunger.org/api/artists");
+        const response = await axios.get(
+          "https://api.child-hunger.org/api/artists"
+        );
         const artists = response.data.data;
 
         // Find the artist based on the username
@@ -144,14 +146,12 @@ const ArtistProfile = ({ artistData: initialArtistData }) => {
           <div className="grid1">
             <div className="font-bold text-xl">Overview</div>
             <ArtistProfileDetails artistData={artistData} />
-            
 
             <div></div>
           </div>
           <div className="col-lg-5 mt-10 p-3 h-[100vh] md:h-auto">
             <MusicStats />
           </div>
-
 
           <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0 `}>
             <div className="flex justify-between text-xl font-bold">
@@ -185,9 +185,13 @@ const ArtistProfile = ({ artistData: initialArtistData }) => {
 export async function getServerSideProps(context) {
   try {
     const { artistNo } = context.query;
-    const response = await axios.get("https://api.child-hunger.org/api/artists");
+    const response = await axios.get(
+      "https://api.child-hunger.org/api/artists"
+    );
     const artistsData = response.data.data;
-    const artistData = artistsData.find((artist) => artist.username === artistNo);
+    const artistData = artistsData.find(
+      (artist) => artist.username === artistNo
+    );
     return {
       props: {
         artistData,
@@ -204,11 +208,6 @@ export async function getServerSideProps(context) {
 }
 
 export default ArtistProfile;
-
-
-
-
-
 
 // import React, { useEffect, useState } from "react";
 // import styles from "../../sass/_em-artistProfile.module.scss";
@@ -356,14 +355,12 @@ export default ArtistProfile;
 //           <div className="grid1">
 //             <div className="font-bold text-xl">Overview</div>
 //             <ArtistProfileDetails artistData={artistData} />
-            
 
 //             <div></div>
 //           </div>
 //           <div className="col-lg-5 mt-10 p-3 h-[100vh] md:h-auto">
 //             <MusicStats />
 //           </div>
-
 
 //           <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0 `}>
 //             <div className="flex justify-between text-xl font-bold">
@@ -397,11 +394,6 @@ export default ArtistProfile;
 // export default ArtistProfile;
 
 //!   LATEST above code is when i half-implemented the routing system (mai isko abhi yhi bolunga latest hai Yellowtail, )
-
-
-
-
-
 
 // // import DesktopSidebar from "@/components/DesktopSidebar";
 // import Image from "next/image";
@@ -577,14 +569,12 @@ export default ArtistProfile;
 //           <div className="grid1">
 //             <div className="font-bold text-xl">Overview</div>
 //             <ArtistProfileDetails artistNumber={artistNumber} />
-            
 
 //             <div></div>
 //           </div>
 //           <div className="col-lg-5 mt-10 p-3 h-[100vh] md:h-auto">
 //             <MusicStats />
 //           </div>
-
 
 //           <div className={`${styles["em-db-subcription"]} -mt-[50vh] md:mt-0 `}>
 //             <div className="flex justify-between text-xl font-bold">
@@ -616,11 +606,3 @@ export default ArtistProfile;
 // };
 
 // export default ArtistProfile;
-
-
-
-
-
-
-
-
