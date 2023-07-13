@@ -28,7 +28,10 @@ const ArtistCard = ({ data, profileImage }) => {
 
       <div className="bottom-4 left-3 relative">
         <div className="w-[78px] h-[37px] pb-2 top-0 absolute">
-          <div className="left-1 top-[15px] absolute text-white text-[16px] font-normal">
+        <div
+            className="left-1 top-[12px] absolute text-white text-xs font-normal overflow-hidden whitespace-nowrap max-w-[100px]"
+            style={{ textOverflow: "ellipsis" }}
+          >
             {full_name}
           </div>
           <div className="left-[41px] top-0 pb-3 absolute text-stone-500 text-[12px] font-normal">
