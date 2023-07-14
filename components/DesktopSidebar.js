@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./sidebar-desktop.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
+import logo from '../public/logo.svg';
+import logo1 from '../public/logo1.svg';
 import { useRouter } from "next/router";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { TbCrown, TbLogout } from "react-icons/tb";
@@ -35,6 +38,13 @@ const DesktopSidebar = () => {
         {icon}
       </button>
 
+      <div
+        className={`fixed top-0 left-0 flex backdrop-blur-sm z-50 p-2 mt-1 mr-3 text-sm text-white rounded-lg sm:hidden ${isSidebarOpen ? 'hidden' : ''}`}
+      >
+        <Image src={logo} className="w-[24px]" alt="logo" />
+        <Image src={logo1} alt="logo" />
+      </div>
+
       <div className={`${styles.sidebar}`}>
         <aside
           id="sidebar-multi-level-sidebar"
@@ -45,12 +55,13 @@ const DesktopSidebar = () => {
         >
           <div className="h-full px-3 py-4  text-gray-800 bg-[#201a2c] hover:bg-[#201a2c] border-[#35235a] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group overflow-y-hidden">
             <div
-              className="cursor-pointer text-white flex justify-center items-center"
+              className="cursor-pointer  text-white flex justify-center items-center"
               onClick={() => {
                 router.push("/");
               }}
             >
-              LOGO HERE
+              <Image src={logo} alt="logo" />
+              <Image src={logo1} alt="logo" />
             </div>
             <ul className={styles["nav-list"]}>
               <li>
