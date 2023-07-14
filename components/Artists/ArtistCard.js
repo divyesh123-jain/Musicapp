@@ -9,7 +9,7 @@ const ArtistCard = ({ data, profileImage }) => {
   };
 
   if (!data || !data.full_name) {
-    return null; // or you can render an error message or placeholder component
+    return null; // or you can render an error message or placeholder 
   }
 
   const { full_name, username } = data;
