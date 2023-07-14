@@ -50,7 +50,7 @@ const Artists = ({ data }) => {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get(process.env.NEXT_PUBLIC_ARTISTS);
+    const response = await axios.get( process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_ARTISTS);
     const data = response.data.data;
     console.log(data);
     return {
