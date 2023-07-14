@@ -6,8 +6,9 @@
   /* --bs-pagination-active-color: ""; */
   --pagination-active-bg: #201a2c;
   --pagination-active-border-color: #35235a;
-  background: linear-gradient(70deg, rgb(55, 45, 76) 0%, rgb(32, 31, 39) 100%);
+  background: linear-gradient(87deg, rgb(55, 45, 76) 0%, rgb(32, 31, 39) 100%);
 }
+
 
 html,body {
   margin: 0;
@@ -40,6 +41,7 @@ code {
   .album-card {
     padding: 1rem !important;
   }
+  
 }
 
 .album-card.active,

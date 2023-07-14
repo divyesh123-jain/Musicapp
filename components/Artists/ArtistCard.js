@@ -20,7 +20,7 @@ const ArtistCard = ({ data, profileImage }) => {
       onClick={handleArtistClick}
     >
       <img
-        className="w-[112px] h-[112px] mx-10 justify-center object-cover object-center rounded-full"
+        className="w-[95px] h-[95px] mx-10 justify-center object-cover object-center rounded-full"
         href="/ArtistProfile"
         src={profileImage}
         alt={full_name}
@@ -29,7 +29,7 @@ const ArtistCard = ({ data, profileImage }) => {
       <div className="bottom-4 left-3 relative">
         <div className="w-[78px] h-[37px] pb-2 top-0 absolute">
         <div
-            className="left-1 top-[12px] absolute text-white text-xs font-normal overflow-hidden whitespace-nowrap max-w-[100px]"
+            className="left-1 top-[12px] absolute text-white text-xs font-normal overflow-hidden whitespace-nowrap "
             style={{ textOverflow: "ellipsis" }}
           >
             {full_name}
