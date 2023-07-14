@@ -31,7 +31,7 @@ function Login() {
       // Perform login logic
       // Example: Send login request to server, handle success and error cases
       // If login is successful, navigate to the main page
-      router.push("/artists"); // Replace "/main" with the actual path to your main page
+      router.push("/artists"); // Replace "/main" with the actual path to your main 
     }
   };
 
