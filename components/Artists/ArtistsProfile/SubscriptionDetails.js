@@ -9,9 +9,10 @@ const SubscriptionDetails = ({ subscriptionData }) => {
           <div className="flex justify-between rounded-[10px] py-1 px-2 backdrop-opacity-25 bg-white/10 border border-white/40">
             <BiSolidCrown className="text-3xl text-yellow-600 mt-4" />
             <div className="mr-10">
-              <div>{item.subscriptionType}</div>
-              <div className="text-sm">Date: {item.date}</div>
-              <div className="text-sm">Total paid: {item.totalPaid}</div>
+              {/* <div>{item.subscriptionType}</div> */}
+              <div> AWB |  Artists with Benefits </div>
+              <div className="text-sm">Date: {item.subscribe_at}</div>
+              <div className="text-sm">Total paid: {item.price}</div>
             </div>
           </div>
         </div>
