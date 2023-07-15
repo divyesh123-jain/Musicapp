@@ -39,7 +39,7 @@ const DesktopSidebar = () => {
       </button>
 
       <div
-        className={`fixed top-0 left-0 flex backdrop-blur-sm z-50 p-2 mt-1 mr-3 text-sm text-white rounded-lg sm:hidden ${isSidebarOpen ? 'hidden' : ''}`}
+        className={`fixed top-0 left-0 flex backdrop-blur-sm z-50  p-2  mt-1 mr-3 text-sm text-white rounded-lg sm:hidden ${isSidebarOpen ? 'hidden' : ''}`}
       >
         <Image src={logo} className="w-[24px]" alt="logo" />
         <Image src={logo1} alt="logo" />
@@ -55,12 +55,12 @@ const DesktopSidebar = () => {
         >
           <div className="h-full px-3 py-4  text-gray-800 bg-[#201a2c] hover:bg-[#201a2c] border-[#35235a] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group overflow-y-hidden">
             <div
-              className="cursor-pointer  text-white flex justify-center items-center"
+              className="cursor-pointer text-white flex justify-center items-center"
               onClick={() => {
                 router.push("/");
               }}
             >
-              <Image src={logo} alt="logo" />
+              <Image  src={logo} alt="logo" />
               <Image src={logo1} alt="logo" />
             </div>
             <ul className={styles["nav-list"]}>

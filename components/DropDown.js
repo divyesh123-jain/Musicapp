@@ -1,30 +1,34 @@
 import React from "react";
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-// import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/outline";
-import { BsChevronDown } from "react-icons/bs"; 
+import { BsChevronDown } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 
-const DropDown = () => {
-  const people = [
-    { name: "Wade Cooper" },
-    { name: "Arlene Mccoy" },
-    { name: "Devon Webb" },
-    { name: "Tom Cook" },
-    { name: "Tanya Fox" },
-    { name: "Hellen Schmidt" },
-  ];
-  const [selected, setSelected] = useState(people[0]);
+const DropDown = ({ options,onChange }) => {
+  const [selected, setSelected] = useState(
+    options?.length > 0 ? options[0] : null
+  );
+  const handleSelect = (option) => {
+    const selectedOption = options.find((person) => person[0] === option);
+    const selectedOptionId = selectedOption ? selectedOption[1] : null;
+    const selectedOptionName = option;
+    const selected = [selectedOptionId, selectedOptionName];
+
+    setSelected(selected);
+    if (onChange) {
+      onChange(selected);
+    }
+  };
 
   return (
     <div className=" absolute w-[100%] ">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={selected} onChange={handleSelect}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded-lg border backdrop-opacity-25 bg-white/10 border-white/40 p-2">
-            <span className="block trun cate">{selected.name}</span>
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+          <Listbox.Button className="relative w-full p-2 border rounded-lg cursor-default backdrop-opacity-25 bg-white/10 border-white/40">
+            <span className="block trun cate">{selected?.name}</span>
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <BsChevronDown
-                className="h-5 w-5 text-gray-400"
+                className="w-5 h-5 text-gray-400"
                 aria-hidden="true"
               />
             </span>
@@ -35,16 +39,16 @@ const DropDown = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-black py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10">
-              {people.map((person, personIdx) => (
+            <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-black rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {options?.map((person) => (
                 <Listbox.Option
-                  key={personIdx}
+                  key={person[1]}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active ? "bg-white/10 text-gray-200" : "text-gray-200"
                     }`
                   }
-                  value={person}
+                  value={person[0]}
                 >
                   {({ selected }) => (
                     <>
@@ -53,11 +57,11 @@ const DropDown = () => {
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person.name}
+                        {person[0]}
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                          {/* <TiTick className="h-5 w-5" aria-hidden="true" /> */}
+                          {/* <TiTick className="w-5 h-5" aria-hidden="true" /> */}
                         </span>
                       ) : null}
                     </>
@@ -73,4 +77,3 @@ const DropDown = () => {
 };
 
 export default DropDown;
-
