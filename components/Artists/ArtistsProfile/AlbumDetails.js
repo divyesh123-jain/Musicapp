@@ -19,7 +19,7 @@ const AlbumDetails = ({ albumData, artistNo }) => {
           key={album.id}
           className="flex flex-col w-[fit] hover:bg-white/5 p-3 rounded-xl cursor-pointer"
           onClick={() => {
-            // Handle click event, e.g., navigate to album details page
+            // Handle click event, e.g., navigate to album details 
           }}
         >
           <Image
