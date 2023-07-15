@@ -24,7 +24,7 @@ const ArtistProfile = ({
   const [singlesData, setSinglesData] = useState([]);
   const [albumData, setAlbumData] = useState(initialAlbumData);
   const [subscriptionData, setSubscriptionData] = useState([]);
-
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -212,8 +212,6 @@ const ArtistProfile = ({
         <div className="text-xl font-semibold mt-10">Albums</div>
 
         <AlbumDetails albumData={albumData} artistNo = {artistNo}/>
-
-        <div className="text-xl font-semibold mt-5">All Singles</div>
 
         <AllSinglesSection singlesData={singlesData} artistNo = { artistNo }  />
       </div>
