@@ -28,7 +28,9 @@ const AlbumDetails = ({ albumData, artistNo }) => {
             key={album.id}
             className="mt-4 flex flex-col mr-4"
             onClick={() => {
-              router.push(`/artists/${artistNo}/${album.artist}/${album.title}`);
+              router.push(
+                `/artists/${artistNo}/album/${album.artist}/${album.title}`
+              );
             }}
           >
             <div
@@ -44,7 +46,9 @@ const AlbumDetails = ({ albumData, artistNo }) => {
                 className="rounded-xl"
                 alt="Album Cover"
               />
-              <div className="font-semibold text-lg mt-3 ml-1">{album.title}</div>
+              <div className="font-semibold text-lg mt-3 ml-1">
+                {album.title}
+              </div>
               <div className="text-gray-400 text-base ml-1">{album.artist}</div>
             </div>
           </div>

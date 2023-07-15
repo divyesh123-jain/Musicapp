@@ -22,7 +22,15 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
   // };
 
   const handleSingleClick = (artist, title) => {
-    router.push(`/artists/${artistNo}/${artist}/${title}`);
+    // Instead of navigating to the [musicNo].js page directly,
+    // pass the selected song data as query parameters to the [musicNo].js page
+    router.push({
+      pathname: `/artists/${artistNo}/song/${artist}/${title}`,
+      query: {
+        artist: artist,
+        title: title,
+      },
+    });
   };
 
   const handleCheckboxChange = (id) => {
@@ -43,9 +51,21 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
     setIsPlaying(updatedIsPlaying);
   };
 
-  const handleDownload = () => {
-    // Handle download event
+  const handleDownload = async (url) => {
+    try {
+      const response = await axios.get(url, { responseType: "blob" });
+      const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.setAttribute("download", "song.mp3"); // Set the desired file name
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.error("Error downloading the song:", error);
+    }
   };
+
 
   const handleSelectAll = () => {
     const allIds = singlesData?.map((single) => single.id);
@@ -116,11 +136,9 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
               />
             </div>
             <div
-              className="ml-4 cursor-pointer"
-              onClick={() =>
-                handleSingleClick(single.artist, single.track.title)
-              }
-            >
+            className="ml-4 cursor-pointer"
+            onClick={() => handleSingleClick(single.artist, single.track.title)}
+          >
               <p className="text-lg font-semibold">{single.track.title}</p>
               <p className="text-sm text-gray-400">{single.artist}</p>
             </div>
@@ -145,7 +163,7 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
             </div>
             <TiDownload
               className="w-6 h-6 text-white ml-4 cursor-pointer"
-              onClick={handleDownload}
+              onClick={() => handleDownload(single.track.file)}
             />
           </div>
         </label>
@@ -173,17 +191,14 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
 };
 
 export default AllSinglesSection;
-
-
-
-//! partial corrrect code
 // import React, { useState } from "react";
 // import { TiMediaPlay, TiMediaPause, TiDownload } from "react-icons/ti";
 // import Image from "next/image";
 // import { useRouter } from "next/router";
 // import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
+// import axios from "axios";
 
-// const AllSinglesSection = ({ singlesData }) => {
+// const AllSinglesSection = ({ singlesData, artistNo  }) => {
 //   const router = useRouter();
 
 //   const [checkedItems, setCheckedItems] = useState([]);
@@ -191,9 +206,13 @@ export default AllSinglesSection;
 //     new Array(singlesData?.length).fill(false)
 //   );
 
+//   // const handleSingleClick = (artist, title) => {
+//   //   // Handle click event, e.g., navigate to single details page
+//   //   router.push(`/artists/${artist}/${title}`);
+//   // };
+
 //   const handleSingleClick = (artist, title) => {
-//     // Handle click event, e.g., navigate to single details page
-//     router.push(`/artists/${artist}/${title}`);
+//     router.push(`/artists/${artistNo}/song/${artist}/${title}`);
 //   };
 
 //   const handleCheckboxChange = (id) => {
@@ -261,7 +280,7 @@ export default AllSinglesSection;
 //             <div
 //               className="ml-4 cursor-pointer"
 //               onClick={() =>
-//                 handleSingleClick(single.artist.split("|")[0], single.track.title)
+//                 handleSingleClick(single.artist, single.track.title)
 //               }
 //             >
 //               <p className="text-lg font-semibold">{single.track.title}</p>

@@ -1,40 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useRouter } from "next/router";
-import styles from "../../../../sass/_em-artistProfile.module.scss";
+import styles from "../../../../../sass/_em-artistProfile.module.scss";
 import TrackDetails from "@/components/Artists/MusicDetail/TrackDetails";
 import SongPlayer from "@/components/Artists/MusicDetail/SongPlayer";
+import axios from "axios";
 
-const MusicDetails = () => {
+const MusicDetails = ({
+  artistData: initialArtistData,
+  albumData: initialAlbumData,
+}) => {
   const router = useRouter();
   const artistName = router.query.artistNo;
   const trackArtist = router.query.Artist;
   const musicNumber = router.query.musicNo;
 
-  // Example array of songs
-  const songs = [
-    {
-      id: 1,
-      albumCover: "/../public/albumCover1.jpg",
-      trackTitle: "Song 1",
-      artist: "Artist 1",
-      duration: "4:30",
-    },
-  ];
+  const [artist, setArtist] = useState(initialArtistData);
+  const [albumData, setAlbumData] = useState(initialAlbumData);
 
-  const tracks = [
-    {
-      id: 1,
-      trackTitle: "Track 1",
-      primaryArtist: "Artist 1",
-      featuredArtist: "Featured Artist 1",
-      label: "Label 1",
-      copyrightHolder: "Copyright Holder 1",
-      copyrightYear: "2023",
-      recordLabel: "Record Label 1",
-      imageSrc:"https://via.placeholder.com/363x366",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const artistsResponse = await axios.get(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/artists`
+        );
+        const artists = artistsResponse.data.data;
+
+        // Find the artist based on the username
+        const foundArtist = artists.find(
+          (artist) => artist.username === artistName
+        );
+
+        setArtist(foundArtist);
+c
+        if (foundArtist) {
+
+          const albumResponse = await axios.get(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/albums/list/${foundArtist.id}`
+          );
+          const fetchedAlbumData = albumResponse.data.data;
+          // console.log("fetchedAlbumData: ", fetchedAlbumData );
+
+          setAlbumData(fetchedAlbumData);
+
+        }
+      } catch (error) {
+        console.error("Error fetching artist data:", error);
+      }
+    };
+
+    fetchData();
+  }, [artistName]);
+
+  if (!artist) {
+    return <div>Loading...</div>;
+  }
+
+  // Example array of songs
+  // const songs = [
+  //   {
+  //     id: 1,
+  //     albumCover: "/../public/albumCover1.jpg",
+  //     trackTitle: "Song 1",
+  //     artist: "Artist 1",
+  //     duration: "4:30",
+  //   },
+  // ];
+
+  // const tracks = [
+  //   {
+  //     id: 1,
+  //     trackTitle: "Track 1",
+  //     primaryArtist: "Artist 1",
+  //     featuredArtist: "Featured Artist 1",
+  //     label: "Label 1",
+  //     copyrightHolder: "Copyright Holder 1",
+  //     copyrightYear: "2023",
+  //     recordLabel: "Record Label 1",
+  //     imageSrc:"https://via.placeholder.com/363x366",
+  //   },
+  // ];
 
   return (
     <>
@@ -60,33 +105,72 @@ const MusicDetails = () => {
               src="https://via.placeholder.com/363x366"
             />
           </div> */}
-          {tracks.map((track) => (
+          {albumData.map((track) => (
             <TrackDetails
               key={track.id}
-              trackTitle={musicNumber}
-              primaryArtist={trackArtist}
-              featuredArtist={track.featuredArtist}
-              label={track.label}
-              copyrightHolder={track.copyrightHolder}
-              copyrightYear={track.copyrightYear}
-              recordLabel={track.recordLabel}
-              imageSrc={track.imageSrc}
+              trackTitle={track.title} // Use the track title from the API response
+              primaryArtist={track.artist} // Use the artist from the API response
+              featuredArtist={null} // If there is no featured artist in the API response, use null or omit this prop
+              label={null} // If there is no label in the API response, use null or omit this prop
+              copyrightHolder={null} // If there is no copyrightHolder in the API response, use null or omit this prop
+              copyrightYear={null} // If there is no copyrightYear in the API response, use null or omit this prop
+              recordLabel={null} // If there is no recordLabel in the API response, use null or omit this prop
+              imageSrc={track.thumbnail} // Use the thumbnail from the API response
             />
           ))}
         {/* </div> */}
-        {songs.map((song) => (
+        {albumData.map((song) => (
           <SongPlayer
             key={song.id}
-            albumCover={song.albumCover}
-            trackTitle={musicNumber}
-            artist={trackArtist}
-            duration={song.duration}
+            albumCover={song.thumbnail} // Use the thumbnail from the API response
+            trackTitle={song.title} // Use the track title from the API response
+            artist={song.artist} // Use the artist from the API response
+            duration={null} // If there is no duration in the API response, use null or omit this prop
           />
         ))}
       </div>
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  try {
+    const { artistNo } = context.query;
+    const artistsResponse = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/artists`
+    );
+    const artistsData = artistsResponse.data.data;
+
+    // Find the artist based on the username
+    const artist = artistsData.find((artist) => artist.username === artistNo);
+
+    if (!artist) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const albumResponse = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/albums/list/${artist.id}`
+    );
+    const albumData = albumResponse.data.data;
+
+    return {
+      props: {
+        artistData: artist,
+        albumData: albumData,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching artist data:", error);
+    return {
+      props: {
+        artistData: null,
+        albumData: null,
+      },
+    };
+  }
+}
 
 
 

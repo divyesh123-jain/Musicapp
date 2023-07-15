@@ -4,7 +4,7 @@ import { BiSolidCrown } from "react-icons/bi";
 const SubscriptionDetails = ({ subscriptionData }) => {
   return (
     <div className="flex flex-col space-y-4 mt-9">
-      {subscriptionData.map((item) => (
+      {subscriptionData?.map((item) => (
         <div key={item.id}>
           <div className="flex justify-between rounded-[10px] py-1 px-2 backdrop-opacity-25 bg-white/10 border border-white/40">
             <BiSolidCrown className="text-3xl text-yellow-600 mt-4" />
