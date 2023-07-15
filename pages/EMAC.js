@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Fragment } from "react";
 import { Transition, Dialog } from "@headlessui/react";
 import Image from "next/image";
 import EMACpop from "../components/EMAC/EMACpop";
 import EMACItem from "@/components/EMAC/EMACItem";
+import axios from "axios";
 
 const EMAC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [items,setItem] = useState([])
+   const [isUpdated, setIsUpdated] = useState(false);
 
+   const handleUpdate = (updatedData) => {
+     setIsUpdated(updatedData);
+   };
   const openModal = () => {
     setIsOpen(true);
   };
@@ -15,35 +21,29 @@ const EMAC = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  const items = [
-    {
-      ranking: "1",
-      artist: "Charlie",
-      country: "USA",
-      genre: "POP",
-      track: "We Don't Talk Anymore",
-      tss: "123",
-    },
-    {
-      ranking: "2",
-      artist: "Adele",
-      country: "UK",
-      genre: "POP",
-      track: "Someone Like You",
-      tss: "98",
-    },
-  ];
+  useEffect(()=>{
+    const fetchingData = async () => {
+      try{
+        const {data} =  await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/musics/top-ten`)
+        setItem(data)
+      }
+      catch(err){
+        console.log(err.message)
+      }
+    }
+    fetchingData()
+  },[isUpdated])
+  // console.log("api",items)
 
   return (
     <>
       <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div>
-          <div className="text-2xl md:text-3xl text-white font-bold">
+          <div className="text-2xl font-bold text-white md:text-3xl">
             <span className="text-red-400 to">Emergence Music Ambassadors</span>{" "}
             Clubs Standings
           </div>
-          <div className="text-gray-400 mt-2 text-lg font-semibold">
+          <div className="mt-2 text-lg font-semibold text-gray-400">
             Season 2023
           </div>
         </div>
@@ -52,26 +52,26 @@ const EMAC = () => {
           <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-[87vw] md:w-[76vw] p-3 mt-3 text-[0.60rem] md:text-lg">
             <div className="w-1/6">Ranking</div>
             <div className="w-1/6 ml-1">Artist</div>
-            <div className="hidden md:block w-1/6 pl-2">Country</div>
+            <div className="hidden w-1/6 pl-2 md:block">Country</div>
             <div className="w-1/6 pl-2">Genre</div>
             <div className="w-2/6 pl-2">Track</div>
-            <div className="w-1/6 flex justify-start pl-2">TSS</div>
+            <div className="flex justify-start w-1/6 pl-2">TSS</div>
           </div>
-          {items.map((item) => (
+          {items?.map((item) => (
             <EMACItem
-              key={item.ranking}
-              ranking={item.ranking}
-              artist={item.artist}
-              country={item.country}
-              genre={item.genre}
-              track={item.track}
-              tss={item.tss}
+              key={item.id}
+              ranking={item.id}
+              artist={item.user?.username}
+              country={item?.user?.country}
+              genre={item?.secondary_genre}
+              track={item?.label}
+              tss={item?.tss || 0}
               openModal={openModal}
             />
           ))}
         </div>
 
-        <div className="pl-10 pr-10 pt-2 pb-2 fixed bottom-3 right-5 text-gray-200 bg-gradient-to-r from-blue-700 to-red-500 rounded-full">
+        <div className="fixed pt-2 pb-2 pl-10 pr-10 text-gray-200 rounded-full bottom-3 right-5 bg-gradient-to-r from-blue-700 to-red-500">
           SAVE
         </div>
       </div>
@@ -79,7 +79,7 @@ const EMAC = () => {
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto flex items-center justify-center"
+          className="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto"
           onClose={closeModal}
         >
           <Transition.Child
@@ -105,12 +105,19 @@ const EMAC = () => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="relative bg-transparent rounded-lg px-4 py-6 overflow-hidden shadow-xl transform transition-all">
-              <EMACpop closeModal={closeModal} />
+            <div className="relative px-4 py-6 overflow-hidden transition-all transform bg-transparent rounded-lg shadow-xl">
+              <EMACpop onChange={handleUpdate} closeModal={closeModal} isUpdated={isUpdated} />
             </div>
           </Transition.Child>
         </Dialog>
       </Transition.Root>
+      {isUpdated && (
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full backdrop-filter backdrop-blur-lg">
+          <div className="p-10 text-white bg-black rounded-lg">
+            <p>Your TSS has been updated</p>
+          </div>
+        </div>
+      )}
     </>
   );
 };

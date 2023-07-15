@@ -214,8 +214,6 @@ const ArtistProfile = ({
 
         <AlbumDetails albumData={albumData} artistNo = {artistNo}/>
 
-        <div className="text-xl font-semibold mt-5">All Singles</div>
-
         <AllSinglesSection singlesData={singlesData} artistNo = { artistNo }  />
       </div>
     </>

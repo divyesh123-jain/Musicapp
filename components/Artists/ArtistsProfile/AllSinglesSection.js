@@ -3,10 +3,13 @@ import { TiMediaPlay, TiMediaPause, TiDownload } from "react-icons/ti";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
+import { BsClock } from "react-icons/bs";
 import axios from "axios";
 
 const AllSinglesSection = ({ singlesData, artistNo  }) => {
   const router = useRouter();
+
+  const [showAll, setShowAll] = useState(false);
 
   const [checkedItems, setCheckedItems] = useState([]);
   const [isPlaying, setIsPlaying] = useState(
@@ -36,6 +39,10 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
     } else {
       setCheckedItems([...checkedItems, id]);
     }
+  };
+
+  const handleClick = () => {
+    setShowAll(!showAll);
   };
 
   const handlePlayPause = (index) => {
@@ -70,8 +77,32 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
   };
 
   return (
+
+    <>
+
+<div className="flex justify-between p-3">
+        <div className="text-xl font-semibold mt-5">ALL Singles</div>
+        {!showAll ? (
+          <div
+            className="text-xl font-semibold mt-5 cursor-pointer"
+            onClick={handleClick}
+          >
+            View All
+          </div>
+        ) : (
+          <div
+            className="text-xl font-semibold mt-5 cursor-pointer"
+            onClick={handleClick}
+          >
+            View Less
+          </div>
+        )}
+      </div>
+
+
     <div className="mt-4 pr-3">
-      {singlesData?.map((single, index) => (
+
+      {singlesData?.slice(0, showAll ? singlesData.length : 3).map((single, index) => (
         <label
           key={single.id}
           className="flex justify-between items-center p-2 last:border-b-0 backdrop-opacity-20 bg-white/[0.13] mb-4 rounded-lg"
@@ -113,6 +144,10 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
             </div>
           </div>
           <div className="flex items-center">
+          <div className="flex justify-between items-center space-x-1 mr-6">
+          <BsClock className="" />
+          <span>2:00</span>
+        </div>
             <div>
               {isPlaying[index] ? (
                 <TiMediaPause
@@ -151,6 +186,7 @@ const AllSinglesSection = ({ singlesData, artistNo  }) => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

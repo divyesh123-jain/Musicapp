@@ -8,34 +8,36 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
       onClick={openModal}
     >
       <div className="w-1/12">{ranking}</div>
-      <div className="w-1/4 flex justify-center items-center space-x-2">
+      <div className="flex items-center justify-center w-1/4 space-x-2">
         <div>
           <Image
             src="/../public/imggg.png"
             width={50}
             height={50}
-            className="rounded-full hidden md:block"
+            className="hidden rounded-full md:block"
+            alt="artist profile picture"
           />
         </div>
         <div className="w-[fit]">
           <div className="">{artist}</div>
-            <div className="hidden md:flex p-1 justify-center items-center space-x-2 backdrop-opacity-20 bg-gray-900 text-gray-200 pl-2 pr-2 rounded-full text-xs">
+            <div className="items-center justify-center hidden p-1 pl-2 pr-2 space-x-2 text-xs text-gray-200 bg-gray-900 rounded-full md:flex backdrop-opacity-20">
               <div>
                 <Image
                   src="/../public/albumCover.jpg"
                   width={30}
                   height={30}
-                  rounded-lg
+                  className="rounded-lg"
+                  alt="album cover"
                 />
               </div>
-              <div className="  text-xs">AWB <span className="hidden md:inline">| Artist With Benefit</span></div>
+              <div className="text-xs ">AWB <span className="hidden md:inline">| Artist With Benefit</span></div>
             </div>
         </div>
       </div>
-      <div className="hidden md:block w-1/6 ml-3 pl-2">{country}</div>
+      <div className="hidden w-1/6 pl-2 ml-3 md:block">{country}</div>
       <div className="w-1/6 pl-2">{genre}</div>
-      <div className="w-2/6 pl-2 overflow-hidden flex justify-start">{track}</div>
-      <div className="w-1/6 pl-2 flex justify-start">{tss}</div>
+      <div className="flex justify-start w-2/6 pl-2 overflow-hidden">{track}</div>
+      <div className="flex justify-start w-1/6 pl-2">{tss}</div>
     </div>
   );
 };
