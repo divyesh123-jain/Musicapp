@@ -13,6 +13,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 const ArtistProfile = ({
   artistData: initialArtistData,
   dashboardData: initialDashboardData,
+  singlesData: initialSinglesData,
   albumData: initialAlbumData,
   subscriptionData: initialSubscriptionData,
 }) => {
@@ -21,9 +22,9 @@ const ArtistProfile = ({
 
   const [artist, setArtist] = useState(initialArtistData);
   const [dashboardData, setDashboardData] = useState(initialDashboardData);
-  const [singlesData, setSinglesData] = useState([]);
+  const [singlesData, setSinglesData] = useState(initialSinglesData);
   const [albumData, setAlbumData] = useState(initialAlbumData);
-  const [subscriptionData, setSubscriptionData] = useState([]);
+  const [subscriptionData, setSubscriptionData] = useState(initialSubscriptionData);
 
 
   useEffect(() => {
@@ -242,6 +243,11 @@ export async function getServerSideProps(context) {
     );
     const dashboardData = dashboardResponse.dashboardInfo.data;
 
+    const singlesResponse = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/musics/list/${artist.id}`
+    );
+    const singlesData = singlesResponse.data.data;
+
     const albumResponse = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/albums/list/${artist.id}`
     );
@@ -256,6 +262,7 @@ export async function getServerSideProps(context) {
       props: {
         artistData: artist,
         dashboardData: dashboardData,
+        singlesData: singlesData,
         albumData: albumData,
         subscriptionData: subscriptionData,
       },
@@ -266,6 +273,7 @@ export async function getServerSideProps(context) {
       props: {
         artistData: null,
         dashboardData: null,
+        singlesData: null,
         albumData: null,
         subscriptionData: null,
       },

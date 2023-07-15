@@ -11,7 +11,7 @@ const AlbumDetails = ({ albumData, artistNo }) => {
      key={album.id}
       className="mt-4 flex"
       onClick={() => {
-        router.push(`/artists/${artistNo}/${album.artist}/${album.title}`);
+        router.push(`/artists/${artistNo}/album/${album.artist}/${album.title}`);
       }}
     >
       
