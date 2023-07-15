@@ -19,7 +19,7 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
           />
         </div>
         <div className="w-[fit]">
-          <div className="">{artist}</div>
+          <div className="text-[8px] md:text-[16px]">{artist}</div>
             <div className="items-center justify-center hidden p-1 pl-2 pr-2 space-x-2 text-xs text-gray-200 bg-gray-900 rounded-full md:flex backdrop-opacity-20">
               <div>
                 <Image
@@ -34,10 +34,10 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
             </div>
         </div>
       </div>
-      <div className="hidden w-1/6 pl-2 ml-3 md:block">{country}</div>
-      <div className="w-1/6 pl-2">{genre}</div>
-      <div className="flex justify-start w-2/6 pl-2 overflow-hidden">{track}</div>
-      <div className="flex justify-start w-1/6 pl-2">{tss}</div>
+      <div className="hidden w-1/6 pl-2 ml-3 text-[8px] md:text-[16px] md:block">{country}</div>
+      <div className="w-1/6 pl-2  break-all text-[8px] md:text-[16px] hyphens-auto">{genre}</div>
+      <div className="flex justify-start text-[8px] md:text-[16px] w-2/6 pl-2 ">{track}</div>
+      <div className="flex justify-start text-[8px] md:text-[16px] w-1/6 pl-2">{tss}</div>
     </div>
   );
 };

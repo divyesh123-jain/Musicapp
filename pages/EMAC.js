@@ -37,7 +37,7 @@ const EMAC = () => {
 
   return (
     <>
-      <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
+      <div className="mt-10 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
         <div>
           <div className="text-2xl font-bold text-white md:text-3xl">
             <span className="text-red-400 to">Emergence Music Ambassadors</span>{" "}
@@ -49,14 +49,17 @@ const EMAC = () => {
         </div>
 
         <div className="mt-10">
-          <div className="flex text-white justify-between items-center backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-[87vw] md:w-[76vw] p-3 mt-3 text-[0.60rem] md:text-lg">
+          <div className="flex text-white justify-between items-center  backdrop-opacity-25 bg-white/10 border-white/40 rounded-lg w-[87vw] md:w-[76vw] p-3 mt-3 text-[0.60rem] md:text-lg "
+         
+          >
+
             <div className="w-1/6">Ranking</div>
             <div className="w-1/6 ml-1">Artist</div>
             <div className="hidden w-1/6 pl-2 md:block">Country</div>
             <div className="w-1/6 pl-2">Genre</div>
             <div className="w-2/6 pl-2">Track</div>
             <div className="flex justify-start w-1/6 pl-2">TSS</div>
-          </div>
+             </div>
           {items?.map((item) => (
             <EMACItem
               key={item.id}
@@ -69,6 +72,7 @@ const EMAC = () => {
               openModal={openModal}
             />
           ))}
+     
         </div>
 
         <div className="fixed pt-2 pb-2 pl-10 pr-10 text-gray-200 rounded-full bottom-3 right-5 bg-gradient-to-r from-blue-700 to-red-500">

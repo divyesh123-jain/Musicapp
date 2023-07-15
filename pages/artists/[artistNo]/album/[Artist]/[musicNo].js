@@ -91,12 +91,12 @@ c
               router.push(`/artists/${artistName}/`);
             }}
           />
-          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
+          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left mx-4 sm:text-[20px]">
             {musicNumber}
           </h2>
         </div>
         <div
-          className={`${styles["em-db-content-body"]} grid lg:grid-cols-3 grid-cols-1 p-3 mt-2 space-x-2`}
+          className={`${styles["em-db-content-body"]} grid lg:grid-cols-3 grid-cols-1 p-4 mt-2 mx-4 space-x-3`}
         ></div>
         {/* <div className="grid lg:grid-cols-2 grid-cols-1 p-3  space-x-2"> */}
           {/* <div className="grid1">
@@ -105,6 +105,7 @@ c
               src="https://via.placeholder.com/363x366"
             />
           </div> */}
+          <div className=" mx-5">
           {albumData.map((track) => (
             <TrackDetails
               key={track.id}
@@ -128,6 +129,7 @@ c
             duration={null} // If there is no duration in the API response, use null or omit this prop
           />
         ))}
+      </div>
       </div>
     </>
   );
