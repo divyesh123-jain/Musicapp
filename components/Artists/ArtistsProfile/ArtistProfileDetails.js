@@ -19,7 +19,7 @@ const ArtistProfileDetails = ({ artistData  }) => {
     <div>
       <div className="flex justify-center items-center">
         <Image
-          src="/../public/imggg.png"
+          src="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
           alt="artist-profile"
           width={150}
           height={150}

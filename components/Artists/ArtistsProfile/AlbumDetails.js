@@ -40,7 +40,8 @@ const AlbumDetails = ({ albumData, artistNo }) => {
               }}
             >
               <Image
-                src={album.image}
+                // src={album.image}
+                src="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
                 width={200}
                 height={200}
                 className="rounded-xl"

@@ -25,12 +25,12 @@ const MusicStats = ({ dashboardInfo, artist }) => {
       </li>
       <li className="col m-0 pt-[12px] pr-[30px] pb-[12px] pl-[10px] list-none bg-[#00000066] rounded-2xl">
         <BsMusicNote className="img-fluid" />
-        <span className="font-sfPro text-base font-medium text-white/60 block mt-4 whitespace-nowrap">Upcoming Music</span>
+        <span className="font-sfPro text-base font-medium text-white/60 block mt-4 whitespace-wrap">Upcoming Music</span>
         <em>{totalUpcomingMusic}</em>
       </li>
       <li className="col m-0 pt-[12px] pr-[30px] pb-[12px] pl-[10px] list-none bg-[#00000066] rounded-2xl">
         <BsMusicNote className="img-fluid" />
-        <span className="font-sfPro text-base font-medium text-white/60 block mt-4 whitespace-nowrap">Published Music</span>
+        <span className="font-sfPro text-base font-medium text-white/60 block mt-4 whitespace-wrap">Published Music</span>
         <em>{totalPublishedMusic}</em>
       </li>
     </div>
