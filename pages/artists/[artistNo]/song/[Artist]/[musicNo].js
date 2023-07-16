@@ -62,7 +62,6 @@ const MusicDetails = ({
     setAudioPlayerVisible(false);
   };
 
-
   return (
     <>
       <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
@@ -92,19 +91,19 @@ const MusicDetails = ({
           />
         </div>
         <SongPlayer
-        key={selectedSongData?.id}
-        // albumCover={selectedSongData?.track.thumbnail}
-        albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
-        trackTitle={selectedSongData?.track.title}
-        artist={selectedSongData?.artist}
-        audioFile={selectedSongData?.track.file}
-        id={selectedSongData?.id}
-        duration={selectedSongData?.duration}
-        isPlaying={isPlaying}
-        onPlayPause={handlePlayPause}
-        onAudioPause={handleAudioPause} 
-        audioPlayerVisible={audioPlayerVisible}
-      />
+          key={selectedSongData?.id}
+          // albumCover={selectedSongData?.track.thumbnail}
+          albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+          trackTitle={selectedSongData?.track.title}
+          artist={selectedSongData?.artist}
+          audioFile={selectedSongData?.track.file}
+          id={selectedSongData?.id}
+          duration={selectedSongData?.duration}
+          isPlaying={isPlaying}
+          onPlayPause={handlePlayPause}
+          onAudioPause={handleAudioPause}
+          audioPlayerVisible={audioPlayerVisible}
+        />
 
         {/* Audio Player */}
         {audioPlayerVisible && (
