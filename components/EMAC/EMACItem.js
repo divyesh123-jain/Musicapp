@@ -11,7 +11,7 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
       <div className="flex items-center justify-center w-1/4 space-x-2">
         <div>
           <Image
-            src="/../public/imggg.png"
+            src="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
             width={50}
             height={50}
             className="hidden rounded-full md:block"
@@ -23,7 +23,7 @@ const EMACItem = ({ ranking, artist, country, genre, track, tss, openModal }) =>
             <div className="items-center justify-center hidden p-1 pl-2 pr-2 space-x-2 text-xs text-gray-200 bg-gray-900 rounded-full md:flex backdrop-opacity-20">
               <div>
                 <Image
-                  src="/../public/albumCover.jpg"
+                  src="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
                   width={30}
                   height={30}
                   className="rounded-lg"

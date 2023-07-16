@@ -5,6 +5,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["api.child-hunger.org"],
+    domains: ["api.child-hunger.org", "admin.emergencemusicdistribution.com"],
   },
 };

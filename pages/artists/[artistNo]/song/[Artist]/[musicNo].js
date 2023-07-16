@@ -87,32 +87,35 @@ const MusicDetails = ({
             copyrightHolder={null}
             copyrightYear={null}
             recordLabel={null}
-            imageSrc={selectedSongData?.track.thumbnail}
+            // imageSrc={selectedSongData?.track.thumbnail}
+            imageSrc="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
           />
         </div>
         <SongPlayer
         key={selectedSongData?.id}
-        albumCover={selectedSongData?.track.thumbnail}
+        // albumCover={selectedSongData?.track.thumbnail}
+        albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
         trackTitle={selectedSongData?.track.title}
         artist={selectedSongData?.artist}
         audioFile={selectedSongData?.track.file}
         id={selectedSongData?.id}
-        duration={selectedSongData?.duration} // Assuming you have duration in the API response
+        duration={selectedSongData?.duration}
         isPlaying={isPlaying}
         onPlayPause={handlePlayPause}
-        onAudioPause={handleAudioPause} // Pass the handleAudioPause function to the SongPlayer component
-        audioPlayerVisible={audioPlayerVisible} // Pass the audio player visibility state to the SongPlayer component
+        onAudioPause={handleAudioPause} 
+        audioPlayerVisible={audioPlayerVisible}
       />
 
         {/* Audio Player */}
         {audioPlayerVisible && (
           <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
             <audio
-              autoPlay={isPlaying} // Start playing when isPlaying is true
+              autoPlay={isPlaying}
               className="react-audio-player w-100"
               controls
               id={`audio-${selectedSongData?.id}`}
-              src={selectedSongData?.track.file}
+              // src={selectedSongData?.track.file}
+              src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
               title={selectedSongData?.track.title}
               // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
             >

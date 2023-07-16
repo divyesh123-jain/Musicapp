@@ -91,14 +91,16 @@ c
               copyrightHolder={null} 
               copyrightYear={null} 
               recordLabel={null} 
-              imageSrc={track.thumbnail} 
+              // imageSrc={track.thumbnail} 
+              imageSrc="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
             />
           ))}
         {/* </div> */}
         {albumData.map((song) => (
           <SongPlayer
             key={song.id}
-            albumCover={song.thumbnail} 
+            // albumCover={song.thumbnail} 
+            albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
             trackTitle={song.title}
             artist={song.artist}
             duration={null} 

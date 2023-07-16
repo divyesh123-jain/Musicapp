@@ -38,7 +38,8 @@ const Artists = ({ data }) => {
               <ArtistCard
                 key={item.id}
                 data={item}
-                profileImage="https://via.placeholder.com/112x112"
+                // profileImage="https://via.placeholder.com/112x112"
+                profileImage="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
               />
             ))}
           </div>
