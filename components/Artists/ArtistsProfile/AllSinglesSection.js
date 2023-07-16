@@ -560,7 +560,7 @@ const AllSinglesSection = ({
                 >
                   <Image
                     // src={single.track.thumbnail}
-                    src="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+                    src="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
                     alt="Single Cover"
                     width={50}
                     height={50}

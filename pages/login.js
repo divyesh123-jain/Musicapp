@@ -41,7 +41,7 @@ function Login() {
         <div className={styles["col-4"]}>
           <div className={styles["em-signup"]}>
             <h3
-              className={`${styles["em-welcome"]} text-3xl flex justify-start items-center`}
+              className={`${styles["em-welcome"]} text-3xl flex justify-start items-center font-  `}
             >
               Admin Panel Login <i className={styles["em-eyeglass"]}></i>
             </h3>

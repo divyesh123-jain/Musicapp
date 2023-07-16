@@ -39,9 +39,8 @@ const MusicDetails = ({
         );
 
         setArtist(foundArtist);
-c
+        c;
         if (foundArtist) {
-
           const albumResponse = await axios.get(
             `${process.env.NEXT_PUBLIC_BASE_URL}/albums/list/${foundArtist.id}`
           );
@@ -49,7 +48,6 @@ c
           // console.log("fetchedAlbumData: ", fetchedAlbumData );
 
           setAlbumData(fetchedAlbumData);
-
         }
       } catch (error) {
         console.error("Error fetching artist data:", error);
@@ -85,65 +83,68 @@ c
           className={`${styles["em-db-content-body"]} grid lg:grid-cols-2 grid-cols-1 p-3 mt-2 space-x-2`}
         ></div>
         {/* <div className="grid lg:grid-cols-2 grid-cols-1 p-3  space-x-2"> */}
-          {/* <div className="grid1">
+        {/* <div className="grid1">
             <img
               className="w-[363px] left-[46px] h-[366px] rounded-2xl"
               src="https://via.placeholder.com/363x366"
             />
           </div> */}
-          <div className=" mx-5">
-          {albumData.map((track) => (
+        <div className=" mx-5">
+          {albumData?.map((track) => (
             <TrackDetails
               key={track.id}
               trackTitle={track.title}
               primaryArtist={track.artist}
               featuredArtist={null}
-              label={null} 
-              copyrightHolder={null} 
-              copyrightYear={null} 
-              recordLabel={null} 
-              // imageSrc={track.thumbnail} 
+              label={null}
+              copyrightHolder={null}
+              copyrightYear={null}
+              recordLabel={null}
+              // imageSrc={track.thumbnail}
               imageSrc="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
             />
           ))}
-        {/* </div> */}
-        {albumData.map((song) => (
-          <SongPlayer
-            key={song.id}
-            // albumCover={song.thumbnail} 
-            albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
-            trackTitle={song.title}
-            artist={song.artist}
-            audioFile={null}
-          id={null}
-          duration={null}
-          isPlaying={isPlaying}
-          onPlayPause={handlePlayPause}
-          onAudioPause={handleAudioPause}
-          audioPlayerVisible={audioPlayerVisible}
-          />
-        ))}
-
-        {/* Audio Player */}
-        {audioPlayerVisible && (
-          <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
-            <audio
-              autoPlay={isPlaying}
-              className="react-audio-player w-100"
-              controls
+          {/* </div> */}
+          {albumData?.map((song) => (
+            <SongPlayer
+              key={song.id}
+              // albumCover={song.thumbnail}
+              albumCover="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
+              trackTitle={song.title}
+              artist={song.artist}
+              audioFile={null}
               id={null}
-              // src={selectedSongData?.track.file}
-              src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
-              title={null}
-              // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
-            >
-              <p>
-                Your browser does not support the <code>audio</code> element.
-              </p>
-            </audio>
+              duration={null}
+              isPlaying={isPlaying}
+              onPlayPause={handlePlayPause}
+              onAudioPause={handleAudioPause}
+              audioPlayerVisible={audioPlayerVisible}
+            />
+          ))}
+
+          {/* Audio Player */}
+          <div>
+            {audioPlayerVisible && (
+              <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x px-2">
+                <audio
+                  autoPlay={isPlaying}
+                  className="react-audio-player w-100 w-[90%] md:w-[300px]"
+                  controls
+                  id={null}
+                  // src={selectedSongData?.track.file}
+                  src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
+                  title={null}
+                  // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
+                >
+                  <p>
+                    Your browser does not support the <code>audio</code>{" "}
+                    element.
+                  </p>
+                </audio>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </div>
       </div>
     </>
   );
@@ -187,7 +188,5 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
-
 
 export default MusicDetails;

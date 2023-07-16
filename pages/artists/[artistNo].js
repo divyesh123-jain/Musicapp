@@ -805,10 +805,10 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
       </div>
     )} */}
     {isAudioVisible && currentTrackIndex !== -1 && (
-      <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
+      <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x px-2">
         <audio
           autoPlay // Start playing when isAudioVisible is true
-          className="react-audio-player w-100"
+          className="react-audio-player w-100 w-[90%] md:w-[300px]"
           controls
           id={`audio-${selectedSongData?.id}`}
           src={currentTrackUrl}

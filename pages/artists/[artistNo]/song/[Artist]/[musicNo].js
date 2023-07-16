@@ -87,13 +87,13 @@ const MusicDetails = ({
             copyrightYear={null}
             recordLabel={null}
             // imageSrc={selectedSongData?.track.thumbnail}
-            imageSrc="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+            imageSrc="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
           />
         </div>
         <SongPlayer
           key={selectedSongData?.id}
           // albumCover={selectedSongData?.track.thumbnail}
-          albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+          albumCover="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
           trackTitle={selectedSongData?.track.title}
           artist={selectedSongData?.artist}
           audioFile={selectedSongData?.track.file}
@@ -107,16 +107,17 @@ const MusicDetails = ({
 
         {/* Audio Player */}
         {audioPlayerVisible && (
-          <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
+          <div className="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png">
             <audio
               autoPlay={isPlaying}
-              className="react-audio-player w-100"
+              className="react-audio-player w-[90%] md:w-[300px]"
               controls
               id={`audio-${selectedSongData?.id}`}
               // src={selectedSongData?.track.file}
               src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
               title={selectedSongData?.track.title}
               // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
+              // style={{ width: "90%" }}
             >
               <p>
                 Your browser does not support the <code>audio</code> element.
