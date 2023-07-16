@@ -66,7 +66,7 @@ c
               router.push(`/artists/${artistName}/`);
             }}
           />
-          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left sm:text-[20px]">
+          <h2 className="text-white ml-[10px] font-sf-pro-text text-[24px] font-semibold tracking-normal text-left mx-4 sm:text-[20px]">
             {musicNumber}
           </h2>
         </div>
@@ -80,6 +80,7 @@ c
               src="https://via.placeholder.com/363x366"
             />
           </div> */}
+          <div className=" mx-5">
           {albumData.map((track) => (
             <TrackDetails
               key={track.id}
@@ -103,6 +104,7 @@ c
             duration={null} 
           />
         ))}
+      </div>
       </div>
     </>
   );

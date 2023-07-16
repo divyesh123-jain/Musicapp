@@ -523,7 +523,7 @@ import axios from "axios";
 
     <>
 
-<div className="flex justify-between p-3">
+<div className="flex justify-between md:p-3">
         <div className="text-xl font-semibold mt-5">ALL Singles</div>
         {!showAll ? (
           <div
