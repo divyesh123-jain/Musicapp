@@ -17,6 +17,13 @@ const MusicDetails = ({
 
   const [artist, setArtist] = useState(initialArtistData);
   const [albumData, setAlbumData] = useState(initialAlbumData);
+  const [audioPlayerVisible, setAudioPlayerVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = () => {
+    setAudioPlayerVisible(!audioPlayerVisible); // Show the audio player when play button is clicked
+    setIsPlaying(!isPlaying);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,6 +62,10 @@ c
   if (!artist) {
     return <div>Loading...</div>;
   }
+
+  const handleAudioPause = () => {
+    setAudioPlayerVisible(false);
+  };
 
   return (
     <>
@@ -103,9 +114,35 @@ c
             albumCover="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
             trackTitle={song.title}
             artist={song.artist}
-            duration={null} 
+            audioFile={null}
+          id={null}
+          duration={null}
+          isPlaying={isPlaying}
+          onPlayPause={handlePlayPause}
+          onAudioPause={handleAudioPause}
+          audioPlayerVisible={audioPlayerVisible}
           />
         ))}
+
+        {/* Audio Player */}
+        {audioPlayerVisible && (
+          <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
+            <audio
+              autoPlay={isPlaying}
+              className="react-audio-player w-100"
+              controls
+              id={null}
+              // src={selectedSongData?.track.file}
+              src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
+              title={null}
+              // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
+            >
+              <p>
+                Your browser does not support the <code>audio</code> element.
+              </p>
+            </audio>
+          </div>
+        )}
       </div>
       </div>
     </>
