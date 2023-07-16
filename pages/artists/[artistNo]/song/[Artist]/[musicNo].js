@@ -1,5 +1,3 @@
-// (this is not) below code is the one in which all songs are being displayed at once
-
 import React, { useEffect, useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useRouter } from "next/router";
@@ -11,7 +9,7 @@ import axios from "axios";
 const MusicDetails = ({
   artistData: initialArtistData,
   singlesData: initialSinglesData,
-  selectedSongData, // Added to receive the selected song data from the query parameters
+  selectedSongData,
 }) => {
   const router = useRouter();
   const artistName = router.query.artistNo;
@@ -19,6 +17,13 @@ const MusicDetails = ({
 
   const [artist, setArtist] = useState(initialArtistData);
   const [singlesData, setSinglesData] = useState(initialSinglesData);
+  const [audioPlayerVisible, setAudioPlayerVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = () => {
+    setAudioPlayerVisible(!audioPlayerVisible); // Show the audio player when play button is clicked
+    setIsPlaying(!isPlaying);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +33,6 @@ const MusicDetails = ({
         );
         const artists = artistsResponse.data.data;
 
-        // Find the artist based on the username
         const foundArtist = artists.find(
           (artist) => artist.username === artistName
         );
@@ -54,6 +58,11 @@ const MusicDetails = ({
     return <div>Loading...</div>;
   }
 
+  const handleAudioPause = () => {
+    setAudioPlayerVisible(false);
+  };
+
+
   return (
     <>
       <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5">
@@ -68,30 +77,51 @@ const MusicDetails = ({
             {musicNumber}
           </h2>
         </div>
-        <div
-          className={`${styles["em-db-content-body"]} grid lg:grid-cols-3 grid-cols-1 p-3 mt-2 space-x-2`}
-        ></div>
-        <div className="grid lg:grid-cols-2 grid-cols-1 p-3 space-x-2">
+        <div className=" p-3 space-x-2">
           <TrackDetails
             key={selectedSongData?.id}
             trackTitle={selectedSongData?.track.title}
             primaryArtist={selectedSongData?.artist}
-            featuredArtist={null} // If there is no featured artist in the API response, use null or omit this prop
-            label={null} // If there is no label in the API response, use null or omit this prop
-            copyrightHolder={null} // If there is no copyrightHolder in the API response, use null or omit this prop
-            copyrightYear={null} // If there is no copyrightYear in the API response, use null or omit this prop
-            recordLabel={null} // If there is no recordLabel in the API response, use null or omit this prop
-            imageSrc={selectedSongData?.track.thumbnail} // Use the thumbnail from the API response
+            featuredArtist={null}
+            label={null}
+            copyrightHolder={null}
+            copyrightYear={null}
+            recordLabel={null}
+            imageSrc={selectedSongData?.track.thumbnail}
           />
         </div>
         <SongPlayer
-          key={selectedSongData?.id}
-          albumCover={selectedSongData?.track.thumbnail}
-          trackTitle={selectedSongData?.track.title}
-          artist={selectedSongData?.artist}
-          audioFile={selectedSongData?.track.file}
-          // Add other props based on your SongPlayer component
-        />
+        key={selectedSongData?.id}
+        albumCover={selectedSongData?.track.thumbnail}
+        trackTitle={selectedSongData?.track.title}
+        artist={selectedSongData?.artist}
+        audioFile={selectedSongData?.track.file}
+        id={selectedSongData?.id}
+        duration={selectedSongData?.duration} // Assuming you have duration in the API response
+        isPlaying={isPlaying}
+        onPlayPause={handlePlayPause}
+        onAudioPause={handleAudioPause} // Pass the handleAudioPause function to the SongPlayer component
+        audioPlayerVisible={audioPlayerVisible} // Pass the audio player visibility state to the SongPlayer component
+      />
+
+        {/* Audio Player */}
+        {audioPlayerVisible && (
+          <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
+            <audio
+              autoPlay={isPlaying} // Start playing when isPlaying is true
+              className="react-audio-player w-100"
+              controls
+              id={`audio-${selectedSongData?.id}`}
+              src={selectedSongData?.track.file}
+              title={selectedSongData?.track.title}
+              // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
+            >
+              <p>
+                Your browser does not support the <code>audio</code> element.
+              </p>
+            </audio>
+          </div>
+        )}
       </div>
     </>
   );
@@ -142,6 +172,5 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
 
 export default MusicDetails;
