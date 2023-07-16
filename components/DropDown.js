@@ -4,10 +4,9 @@ import { Listbox, Transition } from "@headlessui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 
-const DropDown = ({ options,onChange }) => {
-  const [selected, setSelected] = useState(
-    options?.length > 0 ? options[0] : null
-  );
+const DropDown = ({ options, onChange }) => {
+  const [selected, setSelected] = useState(null);
+
   const handleSelect = (option) => {
     const selectedOption = options.find((person) => person[0] === option);
     const selectedOptionId = selectedOption ? selectedOption[1] : null;
@@ -21,11 +20,13 @@ const DropDown = ({ options,onChange }) => {
   };
 
   return (
-    <div className=" absolute w-[100%] ">
+    <div className="absolute w-[100%]">
       <Listbox value={selected} onChange={handleSelect}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full p-2 border rounded-lg cursor-default backdrop-opacity-25 bg-white/10 border-white/40">
-            <span className="block trun cate">{selected?.name}</span>
+          <Listbox.Button className="relative w-full h-10 p-2 border rounded-lg cursor-default backdrop-opacity-25 bg-white/10 border-white/40">
+            <span className="block truncate">
+              {selected ? selected[1] : "Select Name"}
+            </span>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <BsChevronDown
                 className="w-5 h-5 text-gray-400"
