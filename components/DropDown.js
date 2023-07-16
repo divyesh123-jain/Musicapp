@@ -1,17 +1,21 @@
 import React from "react";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 
-const DropDown = ({ options, onChange }) => {
-  const [selected, setSelected] = useState(null);
+const DropDown = ({ options, onChange, artistId }) => {
+  const [selected, setSelected] = useState(
+    artistId ? options.find((option) => option[1] === artistId) : options[0]
+  );
 
   const handleSelect = (option) => {
+    console.log("option",option)
     const selectedOption = options.find((person) => person[0] === option);
+    console.log(selectedOption,"selectedOption")
     const selectedOptionId = selectedOption ? selectedOption[1] : null;
     const selectedOptionName = option;
-    const selected = [selectedOptionId, selectedOptionName];
+    const selected = [selectedOptionName, selectedOptionId];
 
     setSelected(selected);
     if (onChange) {
@@ -19,13 +23,24 @@ const DropDown = ({ options, onChange }) => {
     }
   };
 
+  useEffect(() => {
+    if (artistId) {
+      const selectedOption = options.find((option) => option[1] === artistId);
+      if (selectedOption) {
+        setSelected([selectedOption[0], selectedOption[1]]);
+      }
+    } else {
+      setSelected(options[0]);
+    }
+  }, [artistId, options]);
+
   return (
     <div className="absolute w-[100%]">
-      <Listbox value={selected} onChange={handleSelect}>
+      <Listbox value={selected?.[0]} onChange={handleSelect}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full h-10 p-2 border rounded-lg cursor-default backdrop-opacity-25 bg-white/10 border-white/40">
             <span className="block truncate">
-              {selected ? selected[1] : "Select Name"}
+              {selected ? selected?.[0] : "Select Name"}
             </span>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <BsChevronDown
