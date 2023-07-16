@@ -1,10 +1,10 @@
 import {useEffect,useState} from "react";
 import DropDown from "../DropDown";
 import axios from "axios";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
-const EMACpop = ({ closeModal,onChange,isUpdated }) => {
-  const router = useRouter();
+const EMACpop = ({ closeModal,onChange,isUpdated,itemId }) => {
+  // const router = useRouter();
   const [artists,setArtists] = useState([])
   const [selectedArtist, setSelectedArtist] = useState("");
   const [tracks,setTracks] = useState([])
@@ -13,6 +13,7 @@ const EMACpop = ({ closeModal,onChange,isUpdated }) => {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
+  // console.log(itemId)
   useEffect(()=>{
     const fetchingData = async () => {
       try{
@@ -30,14 +31,17 @@ const EMACpop = ({ closeModal,onChange,isUpdated }) => {
     setSelectedArtist(value);
   };
   useEffect(() => {
+    console.log("selectedartist",selectedArtist[1],"itemid", itemId)
     const fetchData = async () => {
       try {
-        if (selectedArtist) {
+        if (selectedArtist || (itemId || itemId === 1)) {
           const { data } = await axios.get(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/musics/details/${selectedArtist[0]}`
-          )
-          setTracks(data)
+            `${process.env.NEXT_PUBLIC_BASE_URL}/musics/details/${
+              selectedArtist[1] || itemId
+            }`
+          );
           
+            setTracks(data);
         } else {
           setTracks([]);
         }
@@ -45,13 +49,16 @@ const EMACpop = ({ closeModal,onChange,isUpdated }) => {
         console.log(err.message);
       }
     };
+
     fetchData();
-  }, [selectedArtist]);
+  }, [selectedArtist, itemId]);
   const handleSave = () => {
     // Send PUT request
     axios
       .put(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/musics/top-ten/${selectedArtist[0]}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/musics/top-ten/${
+          selectedArtist[1] || itemId
+        }`,
         {
           tss: inputValue,
           isTopTen: true,
@@ -61,34 +68,35 @@ const EMACpop = ({ closeModal,onChange,isUpdated }) => {
         console.log(response.data);
         // Close modal
         closeModal();
-        onChange(true)
+        onChange(true);
         // setIsUpdated(true)
-        setTimeout(()=>{
+        setTimeout(() => {
           onChange(false);
-        },2000)
+        }, 2000);
         // router.reload(window.location.pathname);
       })
       .catch((error) => {
         console.log(error);
-      });
-  };
+      });
+  };
+
   // console.log("artists",artists)
-  // console.log("tracks", [tracks.data.track.title, tracks.data.id]);
-  // console.log(inputValue)a
+  console.log("tracks", [tracks?.data?.track?.title, tracks?.data?.id]);
   return (
     <>
       <div>
         <div className="w-[90vw] md:w-[500px] bg-black rounded-3xl p-7">
           <div className="font-semibold text-white/90">Edit EMAC Item:</div>
           <div className="font-bold text-red-400">
-            Ranking {selectedArtist[0] || 1}
+          Ranking {selectedArtist[1] || itemId}
+
           </div>
           <div className="relative mt-2 font-semibold text-gray-400">
             {/* Artist */}
             {artists.length > 0 && (
               <div className="relative mt-2 font-semibold text-gray-400">
                 Artist
-                <DropDown options={artists} onChange={handleArtistChange} />
+                <DropDown artistId={itemId} options={artists} onChange={handleArtistChange} />
               </div>
             )}
           </div>
