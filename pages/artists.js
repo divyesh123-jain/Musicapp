@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import axios from "axios";
 import logo2 from "../public/logo2.jpg";
+import logo from '../public/logo.svg';
 
 const Artists = ({ data }) => {
   const [searchResults, setSearchResults] = useState(data);
@@ -40,9 +41,9 @@ const Artists = ({ data }) => {
                 key={item.id}
                 data={item}
                 // profileImage="https://via.placeholder.com/112x112"
-                // profileImage="https://www.emergencemusicdistribution.com/static/media/siteLogoName.0c4d6acc04e126ba1c1a80e7a0246ec8.svg"
+                profileImage="https://www.emergencemusicdistribution.com/static/media/siteLogoName.0c4d6acc04e126ba1c1a80e7a0246ec8.svg"
                 // profileImage="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
-                profileImage={logo2}
+                // profileImage src={logo}
               />
             ))}
           </div>

@@ -5,6 +5,7 @@ import styles from "../../../../../sass/_em-artistProfile.module.scss";
 import TrackDetails from "@/components/Artists/MusicDetail/TrackDetails";
 import SongPlayer from "@/components/Artists/MusicDetail/SongPlayer";
 import axios from "axios";
+import { BiMusic } from "react-icons/bi";
 
 const MusicDetails = ({
   artistData: initialArtistData,
