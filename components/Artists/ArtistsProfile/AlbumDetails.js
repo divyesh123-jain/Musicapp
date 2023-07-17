@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { BsDisc } from "react-icons/bs";
 
 const AlbumDetails = ({ albumData, artistNo }) => {
   const router = useRouter();
@@ -8,12 +9,14 @@ const AlbumDetails = ({ albumData, artistNo }) => {
 
   const handleMouseScroll = (event) => {
     const container = scrollContainerRef.current;
-    const scrollAmount = event.deltaY;
+    if (container) {
+      const scrollAmount = event.deltaY;
 
-    container.scrollTo({
-      left: container.scrollLeft + scrollAmount,
-      behavior: "smooth",
-    });
+      container.scrollTo({
+        left: container.scrollLeft + scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -22,7 +25,9 @@ const AlbumDetails = ({ albumData, artistNo }) => {
       onWheel={handleMouseScroll}
       style={{ scrollBehavior: "smooth" }}
     >
+    {albumData && albumData.length > 0 ? (
       <div ref={scrollContainerRef} className="flex">
+      
         {albumData?.map((album) => (
           <div
             key={album.id}
@@ -55,6 +60,13 @@ const AlbumDetails = ({ albumData, artistNo }) => {
           </div>
         ))}
       </div>
+    ) : (
+      <div className="empty py-3">
+          <BsDisc className="text-5xl font-extrabold flex ml-auto mr-auto text-gray-500"/>
+          <p className="m-0">Empty list!</p>
+          <p className="m-0">This artist has no albums at this moment.</p>
+        </div>
+      )}
     </div>
   );
 };

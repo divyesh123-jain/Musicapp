@@ -76,53 +76,63 @@ const MusicDetails = ({
             {musicNumber}
           </h2>
         </div>
-        <div className=" p-3 space-x-2">
-          <TrackDetails
+        {singlesData && singlesData.length > 0 ? (
+        <>
+          <div className=" p-3 space-x-2">
+            <TrackDetails
+              key={selectedSongData?.id}
+              trackTitle={selectedSongData?.track.title}
+              primaryArtist={selectedSongData?.artist}
+              featuredArtist={null}
+              label={null}
+              copyrightHolder={null}
+              copyrightYear={null}
+              recordLabel={null}
+              // imageSrc={selectedSongData?.track.thumbnail}
+              imageSrc="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
+            />
+          </div>
+          <SongPlayer
             key={selectedSongData?.id}
+            // albumCover={selectedSongData?.track.thumbnail}
+            albumCover="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
             trackTitle={selectedSongData?.track.title}
-            primaryArtist={selectedSongData?.artist}
-            featuredArtist={null}
-            label={null}
-            copyrightHolder={null}
-            copyrightYear={null}
-            recordLabel={null}
-            // imageSrc={selectedSongData?.track.thumbnail}
-            imageSrc="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
+            artist={selectedSongData?.artist}
+            audioFile={selectedSongData?.track.file}
+            id={selectedSongData?.id}
+            duration={selectedSongData?.duration}
+            isPlaying={isPlaying}
+            onPlayPause={handlePlayPause}
+            onAudioPause={handleAudioPause}
+            audioPlayerVisible={audioPlayerVisible}
           />
-        </div>
-        <SongPlayer
-          key={selectedSongData?.id}
-          // albumCover={selectedSongData?.track.thumbnail}
-          albumCover="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png"
-          trackTitle={selectedSongData?.track.title}
-          artist={selectedSongData?.artist}
-          audioFile={selectedSongData?.track.file}
-          id={selectedSongData?.id}
-          duration={selectedSongData?.duration}
-          isPlaying={isPlaying}
-          onPlayPause={handlePlayPause}
-          onAudioPause={handleAudioPause}
-          audioPlayerVisible={audioPlayerVisible}
-        />
 
-        {/* Audio Player */}
-        {audioPlayerVisible && (
-          <div className="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png">
-            <audio
-              autoPlay={isPlaying}
-              className="react-audio-player w-[90%] md:w-[300px]"
-              controls
-              id={`audio-${selectedSongData?.id}`}
-              // src={selectedSongData?.track.file}
-              src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
-              title={selectedSongData?.track.title}
-              // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
-              // style={{ width: "90%" }}
-            >
-              <p>
-                Your browser does not support the <code>audio</code> element.
-              </p>
-            </audio>
+          {/* Audio Player */}
+          {audioPlayerVisible && (
+            <div className="https://admin.emergencemusicdistribution.com/uploads/audio/thumbnail/1687028628-file.png">
+              <audio
+                autoPlay={isPlaying}
+                className="react-audio-player w-[90%] md:w-[300px]"
+                controls
+                id={`audio-${selectedSongData?.id}`}
+                // src={selectedSongData?.track.file}
+                src="https://admin.emergencemusicdistribution.com/uploads/audio/track/1687028749-file.wav"
+                title={selectedSongData?.track.title}
+                // onPause={() => setAudioPlayerVisible(false)} // Call the function to hide the audio player when paused
+                // style={{ width: "90%" }}
+              >
+                <p>
+                  Your browser does not support the <code>audio</code> element.
+                </p>
+              </audio>
+            </div>
+          )}
+        </>
+        ) : (
+          <div>
+            <BiMusic />
+            <p className="m-0">Empty list!</p>
+            <p className="m-0">You have no songs at this moment.</p>
           </div>
         )}
       </div>
