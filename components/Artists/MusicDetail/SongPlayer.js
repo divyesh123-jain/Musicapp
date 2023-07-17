@@ -46,8 +46,8 @@ const SongPlayer = ({ albumCover,
               className="w-12 h-12 object-cover rounded-md"
             />
             <div>
-              <p className="text-lg font-bold text-white">{trackTitle}</p>
-              <p className="text-sm text-gray-500">{artist}</p>
+              <p className="text-base md:text-lg  font-bold text-white">{trackTitle}</p>
+              <p className="text-xs md:text-sm text-gray-500">{artist}</p>
             </div>
           </div>
         </div>

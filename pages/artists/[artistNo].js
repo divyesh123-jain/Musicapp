@@ -33,7 +33,7 @@
 //   const [currentPlayingSong, setCurrentPlayingSong] = useState(null); // State to keep track of the currently playing song
 
 //   const handlePlayPause = () => {
-//     setAudioPlayerVisible(!audioPlayerVisible); 
+//     setAudioPlayerVisible(!audioPlayerVisible);
 //   };
 
 //   const handleAudioPause = () => {
@@ -136,7 +136,6 @@
 //       features: ["Social Media Ads", "Youtube Ads", "Influencer", "Email"],
 //     },
 //   ];
-
 
 //   return (
 //     <>
@@ -285,9 +284,6 @@
 // }
 
 // export default ArtistProfile;
-
-
-
 
 // import React, { useEffect, useState } from "react";
 // import styles from "../../sass/_em-artistProfile.module.scss";
@@ -571,11 +567,6 @@
 
 // export default ArtistProfile;
 
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import styles from "../../sass/_em-artistProfile.module.scss";
 import axios from "axios";
@@ -603,10 +594,12 @@ const ArtistProfile = ({
   const [dashboardData, setDashboardData] = useState(initialDashboardData);
   const [singlesData, setSinglesData] = useState(initialSinglesData);
   const [albumData, setAlbumData] = useState(initialAlbumData);
-  const [subscriptionData, setSubscriptionData] = useState(initialSubscriptionData);
+  const [subscriptionData, setSubscriptionData] = useState(
+    initialSubscriptionData
+  );
   const [isAudioVisible, setIsAudioVisible] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
-const [currentTrackUrl, setCurrentTrackUrl] = useState("");
+  const [currentTrackUrl, setCurrentTrackUrl] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -651,10 +644,9 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
             `${process.env.NEXT_PUBLIC_BASE_URL}/artists/subscriptions/${foundArtist.id}`
           );
           const fetchedSubscriptionData = subscriptionResponse.data.data;
-          console.log("fetchedSubscriptionData:" , fetchedSubscriptionData);
+          console.log("fetchedSubscriptionData:", fetchedSubscriptionData);
 
           setSubscriptionData(fetchedSubscriptionData);
-
         }
       } catch (error) {
         console.error("Error fetching artist data:", error);
@@ -690,7 +682,6 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
       time: "10:00",
     },
   ];
-
 
   const addOnData = [
     {
@@ -752,9 +743,9 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
           <AddOnSection addOnData={addOnData} />
         </div>
 
-        <div className="text-xl font-semibold mt-10">Albums</div>
+        <div className="text-xl font-semibold md:mt-10 p-3">Albums</div>
 
-        <AlbumDetails albumData={albumData} artistNo = {artistNo}/>
+        <AlbumDetails albumData={albumData} artistNo={artistNo} />
 
         {/* <AllSinglesSection
       singlesData={singlesData}
@@ -771,25 +762,25 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
         setCurrentTrackUrl("");
       }}
     /> */}
-    <AllSinglesSection
-      singlesData={singlesData}
-      selectedSongData={selectedSongData}
-      artistNo={artistNo}
-      // Pass the callback function to update the state in [artistNo].js
-      onTrackPlay={(trackUrl, index) => {
-        setIsAudioVisible(true);
-        setCurrentTrackUrl(trackUrl);
-        setCurrentTrackIndex(index);
-        // You can also add code to autoplay here
-      }}
-      onTrackPause={() => {
-        setIsAudioVisible(false);
-        setCurrentTrackUrl("");
-        setCurrentTrackIndex(-1);
-      }}
-    />
+        <AllSinglesSection
+          singlesData={singlesData}
+          selectedSongData={selectedSongData}
+          artistNo={artistNo}
+          // Pass the callback function to update the state in [artistNo].js
+          onTrackPlay={(trackUrl, index) => {
+            setIsAudioVisible(true);
+            setCurrentTrackUrl(trackUrl);
+            setCurrentTrackIndex(index);
+            // You can also add code to autoplay here
+          }}
+          onTrackPause={() => {
+            setIsAudioVisible(false);
+            setCurrentTrackUrl("");
+            setCurrentTrackIndex(-1);
+          }}
+        />
 
-{/* {isAudioVisible && (
+        {/* {isAudioVisible && (
       <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
         <audio
           autoPlay // Start playing when isAudioVisible is true
@@ -804,22 +795,22 @@ const [currentTrackUrl, setCurrentTrackUrl] = useState("");
         </audio>
       </div>
     )} */}
-    {isAudioVisible && currentTrackIndex !== -1 && (
-      <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
-        <audio
-          autoPlay // Start playing when isAudioVisible is true
-          className="react-audio-player w-100"
-          controls
-          id={`audio-${selectedSongData?.id}`}
-          src={currentTrackUrl}
-          title={selectedSongData?.track.title}
-        >
-          <p>Your browser does not support the <code>audio</code> element.</p>
-        </audio>
-      </div>
-    )}
-
-
+        {isAudioVisible && currentTrackIndex !== -1 && (
+          <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x px-2">
+            <audio
+              autoPlay // Start playing when isAudioVisible is true
+              className="react-audio-player w-100 w-[90%] md:w-[300px]"
+              controls
+              id={`audio-${selectedSongData?.id}`}
+              src={currentTrackUrl}
+              title={selectedSongData?.track.title}
+            >
+              <p>
+                Your browser does not support the <code>audio</code> element.
+              </p>
+            </audio>
+          </div>
+        )}
       </div>
     </>
   );
@@ -891,12 +882,6 @@ export async function getServerSideProps(context) {
 }
 
 export default ArtistProfile;
-
-
-
-
-
-
 
 // import React, { useEffect, useState } from "react";
 // import styles from "../../sass/_em-artistProfile.module.scss";
@@ -1067,8 +1052,6 @@ export default ArtistProfile;
 //   //   },
 //   // ];
 
-  
-
 //   return (
 //     <>
 //       <div className="mt-8 md:mt-0 md:ml-[270px] min-h-[100vh] text-white p-5 md:w-[85vw]">
@@ -1147,7 +1130,7 @@ export default ArtistProfile;
 //       )} */}
 
 //       {isAudioVisible && (
-         
+
 //           <div className="position-fixed flex justify-center items-center bottom-0 start-50 translate-middle-x w-25 px-2">
 //             <audio
 //               // autoPlay={isPlaying} // Start playing when isPlaying is true
@@ -1165,7 +1148,6 @@ export default ArtistProfile;
 //             </audio>
 //           </div>
 //         )}
-
 
 //       </div>
 //     </>

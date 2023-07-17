@@ -3,6 +3,7 @@ import SearchBar from "@/components/Artists/SearchBar";
 import React, { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import axios from "axios";
+import logo2 from "../public/logo2.jpg";
 
 const Artists = ({ data }) => {
   const [searchResults, setSearchResults] = useState(data);
@@ -39,7 +40,9 @@ const Artists = ({ data }) => {
                 key={item.id}
                 data={item}
                 // profileImage="https://via.placeholder.com/112x112"
-                profileImage="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+                // profileImage="https://www.emergencemusicdistribution.com/static/media/siteLogoName.0c4d6acc04e126ba1c1a80e7a0246ec8.svg"
+                // profileImage="https://admin.emergencemusicdistribution.com/uploads/album/thumbnail/1687028749-file.jpg"
+                profileImage={logo2}
               />
             ))}
           </div>
@@ -49,11 +52,14 @@ const Artists = ({ data }) => {
   );
 };
 
+
 export async function getServerSideProps() {
   try {
-    const response = await axios.get(process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_ARTISTS);
+    const response = await axios.get(
+      process.env.NEXT_PUBLIC_BASE_URL + process.env.NEXT_PUBLIC_ARTISTS
+    );
     const data = response.data.data;
-    console.log(data);
+    // console.log(data);
     return {
       props: {
         data,

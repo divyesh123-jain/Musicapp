@@ -12,7 +12,7 @@ const TrackDetails = ({
 }) => {
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 p-3  space-x-6">
-      <div className="grid1">
+      <div className="grid1  mx-auto">
         <img
           className="flex justify-center items-center w-[200px] h-[200px] md:w-[363px] md:left-[46px] md:h-[366px] rounded-2xl"
           src={imageSrc}
